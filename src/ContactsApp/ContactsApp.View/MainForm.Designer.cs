@@ -188,6 +188,8 @@ namespace ContactsApp.View
             // 
             // InfoGroupBox
             // 
+            this.InfoGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.InfoGroupBox.AutoSize = true;
             this.InfoGroupBox.Controls.Add(this.BirthdayTimePicker);
             this.InfoGroupBox.Controls.Add(this.VkTextBox);
@@ -381,7 +383,7 @@ namespace ContactsApp.View
             this.FileContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.exitToolStripMenuItem1});
             this.FileContextMenuStrip.Name = "FileContextMenuStrip";
-            this.FileContextMenuStrip.Size = new System.Drawing.Size(211, 56);
+            this.FileContextMenuStrip.Size = new System.Drawing.Size(103, 28);
             // 
             // exitToolStripMenuItem1
             // 
