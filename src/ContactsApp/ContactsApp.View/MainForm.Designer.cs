@@ -188,8 +188,6 @@ namespace ContactsApp.View
             // 
             // InfoGroupBox
             // 
-            this.InfoGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.InfoGroupBox.AutoSize = true;
             this.InfoGroupBox.Controls.Add(this.BirthdayTimePicker);
             this.InfoGroupBox.Controls.Add(this.VkTextBox);
@@ -203,9 +201,9 @@ namespace ContactsApp.View
             this.InfoGroupBox.Controls.Add(this.BirthdayLabel);
             this.InfoGroupBox.Controls.Add(this.NameLabel);
             this.InfoGroupBox.Controls.Add(this.SurnameLabel);
-            this.InfoGroupBox.Location = new System.Drawing.Point(4, 0);
+            this.InfoGroupBox.Location = new System.Drawing.Point(0, 0);
             this.InfoGroupBox.Name = "InfoGroupBox";
-            this.InfoGroupBox.Size = new System.Drawing.Size(619, 459);
+            this.InfoGroupBox.Size = new System.Drawing.Size(626, 459);
             this.InfoGroupBox.TabIndex = 0;
             this.InfoGroupBox.TabStop = false;
             this.InfoGroupBox.Visible = false;
@@ -227,7 +225,7 @@ namespace ContactsApp.View
             this.VkTextBox.Location = new System.Drawing.Point(121, 166);
             this.VkTextBox.Name = "VkTextBox";
             this.VkTextBox.ReadOnly = true;
-            this.VkTextBox.Size = new System.Drawing.Size(476, 24);
+            this.VkTextBox.Size = new System.Drawing.Size(483, 24);
             this.VkTextBox.TabIndex = 11;
             // 
             // EmailTextBox
@@ -238,7 +236,7 @@ namespace ContactsApp.View
             this.EmailTextBox.Location = new System.Drawing.Point(121, 130);
             this.EmailTextBox.Name = "EmailTextBox";
             this.EmailTextBox.ReadOnly = true;
-            this.EmailTextBox.Size = new System.Drawing.Size(476, 24);
+            this.EmailTextBox.Size = new System.Drawing.Size(483, 24);
             this.EmailTextBox.TabIndex = 10;
             // 
             // PhoneTextBox
@@ -249,7 +247,7 @@ namespace ContactsApp.View
             this.PhoneTextBox.Location = new System.Drawing.Point(121, 97);
             this.PhoneTextBox.Name = "PhoneTextBox";
             this.PhoneTextBox.ReadOnly = true;
-            this.PhoneTextBox.Size = new System.Drawing.Size(476, 24);
+            this.PhoneTextBox.Size = new System.Drawing.Size(483, 24);
             this.PhoneTextBox.TabIndex = 9;
             // 
             // NameTextBox
@@ -260,7 +258,7 @@ namespace ContactsApp.View
             this.NameTextBox.Location = new System.Drawing.Point(121, 38);
             this.NameTextBox.Name = "NameTextBox";
             this.NameTextBox.ReadOnly = true;
-            this.NameTextBox.Size = new System.Drawing.Size(476, 24);
+            this.NameTextBox.Size = new System.Drawing.Size(483, 24);
             this.NameTextBox.TabIndex = 7;
             // 
             // SurnameTextBox
@@ -271,7 +269,7 @@ namespace ContactsApp.View
             this.SurnameTextBox.Location = new System.Drawing.Point(121, 5);
             this.SurnameTextBox.Name = "SurnameTextBox";
             this.SurnameTextBox.ReadOnly = true;
-            this.SurnameTextBox.Size = new System.Drawing.Size(476, 24);
+            this.SurnameTextBox.Size = new System.Drawing.Size(483, 24);
             this.SurnameTextBox.TabIndex = 6;
             // 
             // VkLabel
@@ -383,13 +381,14 @@ namespace ContactsApp.View
             this.FileContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.exitToolStripMenuItem1});
             this.FileContextMenuStrip.Name = "FileContextMenuStrip";
-            this.FileContextMenuStrip.Size = new System.Drawing.Size(103, 28);
+            this.FileContextMenuStrip.Size = new System.Drawing.Size(211, 56);
             // 
             // exitToolStripMenuItem1
             // 
             this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
-            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(102, 24);
+            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(210, 24);
             this.exitToolStripMenuItem1.Text = "Exit";
+            this.exitToolStripMenuItem1.Click += new System.EventHandler(this.exitToolStripMenuItem1_Click);
             // 
             // EditContextMenuStrip
             // 
@@ -404,14 +403,16 @@ namespace ContactsApp.View
             // addContactToolStripMenuItem
             // 
             this.addContactToolStripMenuItem.Name = "addContactToolStripMenuItem";
-            this.addContactToolStripMenuItem.Size = new System.Drawing.Size(187, 24);
+            this.addContactToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.addContactToolStripMenuItem.Text = "Add Contact";
+            this.addContactToolStripMenuItem.Click += new System.EventHandler(this.addContactToolStripMenuItem_Click);
             // 
             // editContactToolStripMenuItem
             // 
             this.editContactToolStripMenuItem.Name = "editContactToolStripMenuItem";
-            this.editContactToolStripMenuItem.Size = new System.Drawing.Size(187, 24);
+            this.editContactToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.editContactToolStripMenuItem.Text = "Edit Contact";
+            this.editContactToolStripMenuItem.Click += new System.EventHandler(this.editContactToolStripMenuItem_Click);
             // 
             // removeContactToolStripMenuItem
             // 
@@ -430,7 +431,7 @@ namespace ContactsApp.View
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(119, 24);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 

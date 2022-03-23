@@ -19,9 +19,6 @@ namespace ContactsApp.View
 
         private void FileButton_Click(object sender, EventArgs e)
         {
-            FileContextMenuStrip.Items.Clear();
-            FileContextMenuStrip.Items.Add("Exit");
-
             FileContextMenuStrip.Show(FileButton, new Point(0, FileButton.Height));
         }
 
@@ -50,18 +47,11 @@ namespace ContactsApp.View
 
         private void EditButton_Click(object sender, EventArgs e)
         {
-            EditContextMenuStrip.Items.Clear();
-            EditContextMenuStrip.Items.Add("Add Contact");
-            EditContextMenuStrip.Items.Add("Edit Contact");
-            EditContextMenuStrip.Items.Add("Remove Contact");
-
             EditContextMenuStrip.Show(EditButton, new Point(0, EditButton.Height));
         }
 
         private void HelpButton_Click(object sender, EventArgs e)
         {
-            HelpContextMenuStrip.Items.Clear();
-            HelpContextMenuStrip.Items.Add("About");
 
             HelpContextMenuStrip.Show(HelpButton, new Point(0, HelpButton.Height));
         }
@@ -87,6 +77,23 @@ namespace ContactsApp.View
         {
             AboutForm aboutForm = new AboutForm();
             aboutForm.Visible = true;
+        }
+
+        private void addContactToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ContactForm contactForm = new ContactForm();
+            contactForm.Visible = true;
+        }
+
+        private void editContactToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ContactForm contactForm = new ContactForm();
+            contactForm.Visible = true;
+        }
+
+        private void exitToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

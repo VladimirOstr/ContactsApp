@@ -128,6 +128,7 @@ namespace ContactsApp.View
             this.Controls.Add(this.VersionAppLabel);
             this.Controls.Add(this.NameAppLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "AboutForm";
             this.Text = "AboutForm";
             this.ResumeLayout(false);

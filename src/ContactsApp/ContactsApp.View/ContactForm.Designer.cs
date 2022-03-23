@@ -207,6 +207,7 @@ namespace ContactsApp.View
             this.Controls.Add(this.OkButton);
             this.Controls.Add(this.ContactGroupBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "ContactForm";
             this.Text = "ContactForm";
             this.ContactGroupBox.ResumeLayout(false);
