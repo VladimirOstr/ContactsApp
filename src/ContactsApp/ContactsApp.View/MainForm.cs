@@ -59,13 +59,13 @@ namespace ContactsApp.View
         private void AddPictureBox_Click(object sender, EventArgs e)
         {
             ContactForm contactForm = new ContactForm();
-            contactForm.Visible = true;
+            contactForm.Show();
         }
 
         private void EditPictureBox_Click(object sender, EventArgs e)
         {
             ContactForm contactForm = new ContactForm();
-            contactForm.Visible = true;
+            contactForm.Show();
         }
 
         private void RemovePictureBox_Click(object sender, EventArgs e)
@@ -76,19 +76,19 @@ namespace ContactsApp.View
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AboutForm aboutForm = new AboutForm();
-            aboutForm.Visible = true;
+            aboutForm.Show();
         }
 
         private void addContactToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ContactForm contactForm = new ContactForm();
-            contactForm.Visible = true;
+            contactForm.Show();
         }
 
         private void editContactToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ContactForm contactForm = new ContactForm();
-            contactForm.Visible = true;
+            contactForm.Show();
         }
 
         private void exitToolStripMenuItem1_Click(object sender, EventArgs e)

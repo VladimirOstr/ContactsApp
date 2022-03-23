@@ -29,6 +29,7 @@ namespace ContactsApp.View
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ContactForm));
             this.ContactGroupBox = new System.Windows.Forms.GroupBox();
             this.BirthdayTimePicker = new System.Windows.Forms.DateTimePicker();
             this.VkTextBox = new System.Windows.Forms.TextBox();
@@ -244,6 +245,7 @@ namespace ContactsApp.View
             this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.OkButton);
             this.Controls.Add(this.ContactGroupBox);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ContactForm";
             this.Text = "ContactForm";
             this.ContactGroupBox.ResumeLayout(false);
