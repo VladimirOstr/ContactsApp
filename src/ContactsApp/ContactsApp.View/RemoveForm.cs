@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ContactsApp.View
 {
-    public partial class ContactForm : Form
+    public partial class RemoveForm : Form
     {
-        public ContactForm()
+        public RemoveForm()
         {
             InitializeComponent();
         }

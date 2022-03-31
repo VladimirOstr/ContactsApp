@@ -26,7 +26,12 @@ namespace ContactsApp.View
         {
             try
             {
-                string selectedItem = ContactsListBox.SelectedItem.ToString();
+                string selectedItem;
+                if (ContactsListBox.SelectedItem == null)
+                {
+                    throw new Exception();
+                }
+                selectedItem = ContactsListBox.SelectedItem.ToString();
                 if (selectedItem == "Иван Иванов")
                 {
                     SurnameTextBox.Text = "Иван";
@@ -46,9 +51,9 @@ namespace ContactsApp.View
                 VkTextBox.Text = "id653404534";
                 InfoGroupBox.Visible = true;
             }
-            catch 
+            catch (Exception)
             {
-                MessageBox.Show("Пустой контакт");
+             
             }
         }
 
@@ -63,23 +68,6 @@ namespace ContactsApp.View
             HelpContextMenuStrip.Show(HelpButton, new Point(0, HelpButton.Height));
         }
 
-        private void AddPictureBox_Click(object sender, EventArgs e)
-        {
-            ContactForm contactForm = new ContactForm();
-            contactForm.Show();
-        }
-
-        private void EditPictureBox_Click(object sender, EventArgs e)
-        {
-            ContactForm contactForm = new ContactForm();
-            contactForm.Show();
-        }
-
-        private void RemovePictureBox_Click(object sender, EventArgs e)
-        {
-           
-        }
-
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AboutForm aboutForm = new AboutForm();
@@ -88,19 +76,48 @@ namespace ContactsApp.View
 
         private void addContactToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ContactForm contactForm = new ContactForm();
-            contactForm.Show();
+            ContactForm addContactForm = new ContactForm();
+            addContactForm.Show();
         }
 
         private void editContactToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ContactForm contactForm = new ContactForm();
-            contactForm.Show();
+            ContactForm editContactForm = new ContactForm();
+            editContactForm.Show();
         }
 
         private void exitToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            ContactsListBox.ScrollAlwaysVisible = true;
+        }
+
+        private void AddContactButton_Click(object sender, EventArgs e)
+        {
+            ContactForm addContactForm = new ContactForm();
+            addContactForm.Show();
+        }
+
+        private void EditContactButton_Click(object sender, EventArgs e)
+        {
+            ContactForm editContactForm = new ContactForm();
+            editContactForm.Show();
+        }
+
+        private void RemoveContactButton_Click(object sender, EventArgs e)
+        {
+            RemoveForm removeForm = new RemoveForm();
+            removeForm.Show();
+        }
+
+        private void removeContactToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RemoveForm removeForm = new RemoveForm();
+            removeForm.Show();
         }
     }
 }

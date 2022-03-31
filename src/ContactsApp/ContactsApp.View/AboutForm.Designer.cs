@@ -130,6 +130,7 @@ namespace ContactsApp.View
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "AboutForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AboutForm";
             this.ResumeLayout(false);
             this.PerformLayout();
