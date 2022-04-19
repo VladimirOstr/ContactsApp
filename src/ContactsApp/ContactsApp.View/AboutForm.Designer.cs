@@ -43,45 +43,50 @@ namespace ContactsApp.View
             // 
             this.NameAppLabel.AutoSize = true;
             this.NameAppLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.NameAppLabel.Location = new System.Drawing.Point(13, 13);
+            this.NameAppLabel.Location = new System.Drawing.Point(10, 11);
+            this.NameAppLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.NameAppLabel.Name = "NameAppLabel";
-            this.NameAppLabel.Size = new System.Drawing.Size(160, 29);
+            this.NameAppLabel.Size = new System.Drawing.Size(128, 24);
             this.NameAppLabel.TabIndex = 0;
             this.NameAppLabel.Text = "ContactsApp";
             // 
             // VersionAppLabel
             // 
             this.VersionAppLabel.AutoSize = true;
-            this.VersionAppLabel.Location = new System.Drawing.Point(18, 46);
+            this.VersionAppLabel.Location = new System.Drawing.Point(14, 37);
+            this.VersionAppLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.VersionAppLabel.Name = "VersionAppLabel";
-            this.VersionAppLabel.Size = new System.Drawing.Size(55, 17);
+            this.VersionAppLabel.Size = new System.Drawing.Size(43, 13);
             this.VersionAppLabel.TabIndex = 1;
             this.VersionAppLabel.Text = "v. 1.0.0";
             // 
             // AuthorAppLabel
             // 
             this.AuthorAppLabel.AutoSize = true;
-            this.AuthorAppLabel.Location = new System.Drawing.Point(15, 92);
+            this.AuthorAppLabel.Location = new System.Drawing.Point(11, 75);
+            this.AuthorAppLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.AuthorAppLabel.Name = "AuthorAppLabel";
-            this.AuthorAppLabel.Size = new System.Drawing.Size(175, 17);
+            this.AuthorAppLabel.Size = new System.Drawing.Size(130, 13);
             this.AuthorAppLabel.TabIndex = 2;
             this.AuthorAppLabel.Text = "Author: Vladimir Ostrovsky";
             // 
             // AuthorEmailLabel
             // 
             this.AuthorEmailLabel.AutoSize = true;
-            this.AuthorEmailLabel.Location = new System.Drawing.Point(15, 126);
+            this.AuthorEmailLabel.Location = new System.Drawing.Point(11, 102);
+            this.AuthorEmailLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.AuthorEmailLabel.Name = "AuthorEmailLabel";
-            this.AuthorEmailLabel.Size = new System.Drawing.Size(133, 17);
+            this.AuthorEmailLabel.Size = new System.Drawing.Size(100, 13);
             this.AuthorEmailLabel.TabIndex = 3;
             this.AuthorEmailLabel.Text = "e-mail for feedback:";
             // 
             // AuthorEmailLinkLabel
             // 
             this.AuthorEmailLinkLabel.AutoSize = true;
-            this.AuthorEmailLinkLabel.Location = new System.Drawing.Point(154, 126);
+            this.AuthorEmailLinkLabel.Location = new System.Drawing.Point(116, 102);
+            this.AuthorEmailLinkLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.AuthorEmailLinkLabel.Name = "AuthorEmailLinkLabel";
-            this.AuthorEmailLinkLabel.Size = new System.Drawing.Size(198, 17);
+            this.AuthorEmailLinkLabel.Size = new System.Drawing.Size(152, 13);
             this.AuthorEmailLinkLabel.TabIndex = 4;
             this.AuthorEmailLinkLabel.TabStop = true;
             this.AuthorEmailLinkLabel.Text = "vovuchaostrovsky@gmail.com";
@@ -89,18 +94,20 @@ namespace ContactsApp.View
             // NameGitLabel
             // 
             this.NameGitLabel.AutoSize = true;
-            this.NameGitLabel.Location = new System.Drawing.Point(15, 156);
+            this.NameGitLabel.Location = new System.Drawing.Point(11, 127);
+            this.NameGitLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.NameGitLabel.Name = "NameGitLabel";
-            this.NameGitLabel.Size = new System.Drawing.Size(54, 17);
+            this.NameGitLabel.Size = new System.Drawing.Size(41, 13);
             this.NameGitLabel.TabIndex = 5;
             this.NameGitLabel.Text = "Github:";
             // 
             // GitLinkLabel
             // 
             this.GitLinkLabel.AutoSize = true;
-            this.GitLinkLabel.Location = new System.Drawing.Point(75, 156);
+            this.GitLinkLabel.Location = new System.Drawing.Point(56, 127);
+            this.GitLinkLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.GitLinkLabel.Name = "GitLinkLabel";
-            this.GitLinkLabel.Size = new System.Drawing.Size(169, 17);
+            this.GitLinkLabel.Size = new System.Drawing.Size(128, 13);
             this.GitLinkLabel.TabIndex = 6;
             this.GitLinkLabel.TabStop = true;
             this.GitLinkLabel.Text = "VladimirOstr/ContactsApp";
@@ -108,17 +115,18 @@ namespace ContactsApp.View
             // SignatureLabel
             // 
             this.SignatureLabel.AutoSize = true;
-            this.SignatureLabel.Location = new System.Drawing.Point(15, 253);
+            this.SignatureLabel.Location = new System.Drawing.Point(11, 206);
+            this.SignatureLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.SignatureLabel.Name = "SignatureLabel";
-            this.SignatureLabel.Size = new System.Drawing.Size(175, 17);
+            this.SignatureLabel.Size = new System.Drawing.Size(131, 13);
             this.SignatureLabel.TabIndex = 7;
             this.SignatureLabel.Text = "2022 Vladimir Ostrovsky ®";
             // 
             // AboutForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(424, 290);
+            this.ClientSize = new System.Drawing.Size(318, 236);
             this.Controls.Add(this.SignatureLabel);
             this.Controls.Add(this.GitLinkLabel);
             this.Controls.Add(this.NameGitLabel);
@@ -128,10 +136,11 @@ namespace ContactsApp.View
             this.Controls.Add(this.VersionAppLabel);
             this.Controls.Add(this.NameAppLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.Name = "AboutForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AboutForm";
+            this.Text = "About";
             this.ResumeLayout(false);
             this.PerformLayout();
 

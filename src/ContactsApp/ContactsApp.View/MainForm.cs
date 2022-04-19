@@ -17,11 +17,6 @@ namespace ContactsApp.View
             InitializeComponent();
         }
 
-        private void FileButton_Click(object sender, EventArgs e)
-        {
-            FileContextMenuStrip.Show(FileButton, new Point(0, FileButton.Height));
-        }
-
         private void ContactsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -57,39 +52,6 @@ namespace ContactsApp.View
             }
         }
 
-        private void EditButton_Click(object sender, EventArgs e)
-        {
-            EditContextMenuStrip.Show(EditButton, new Point(0, EditButton.Height));
-        }
-
-        private void HelpButton_Click(object sender, EventArgs e)
-        {
-
-            HelpContextMenuStrip.Show(HelpButton, new Point(0, HelpButton.Height));
-        }
-
-        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            AboutForm aboutForm = new AboutForm();
-            aboutForm.Show();
-        }
-
-        private void addContactToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ContactForm addContactForm = new ContactForm();
-            addContactForm.Show();
-        }
-
-        private void editContactToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ContactForm editContactForm = new ContactForm();
-            editContactForm.Show();
-        }
-
-        private void exitToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
@@ -110,14 +72,17 @@ namespace ContactsApp.View
 
         private void RemoveContactButton_Click(object sender, EventArgs e)
         {
-            RemoveForm removeForm = new RemoveForm();
-            removeForm.Show();
+            MessageBox.Show("Do you really want to remove this contact?", 
+                "Message",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Information,
+                MessageBoxDefaultButton.Button1,
+                MessageBoxOptions.DefaultDesktopOnly);
         }
 
-        private void removeContactToolStripMenuItem_Click(object sender, EventArgs e)
+
+        private void ExitToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            RemoveForm removeForm = new RemoveForm();
-            removeForm.Show();
+            Application.Exit();
         }
     }
 }
