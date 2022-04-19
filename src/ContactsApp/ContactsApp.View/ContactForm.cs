@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace ContactsApp.View
 {
-    public partial class Form1 : Form
+    public partial class ContactForm : Form
     {
-        public Form1()
+        public ContactForm()
         {
             InitializeComponent();
+        }
+
+        private void OkButton_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void CancelButton_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
