@@ -26,5 +26,6 @@ namespace ContactsApp.View
         {
             Close();
         }
+
     }
 }
