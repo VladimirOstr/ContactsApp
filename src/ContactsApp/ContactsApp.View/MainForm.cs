@@ -79,10 +79,36 @@ namespace ContactsApp.View
                 MessageBoxOptions.DefaultDesktopOnly);
         }
 
-
-        private void ExitToolStripMenuItem_Click_1(object sender, EventArgs e)
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void addContactToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ContactForm contactForm = new ContactForm();
+            contactForm.Show();
+        }
+
+        private void editContactToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ContactForm contactForm = new ContactForm();
+            contactForm.Show();
+        }
+
+        private void removeContactToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Do you really want to remove this contact?",
+                "Message",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Information,
+                MessageBoxDefaultButton.Button1,
+                MessageBoxOptions.DefaultDesktopOnly);
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AboutForm aboutForm = new AboutForm();
+            aboutForm.Show();
         }
     }
 }
