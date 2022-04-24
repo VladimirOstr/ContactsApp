@@ -205,7 +205,9 @@ namespace ContactsApp.View
             this.Controls.Add(this.SurnameLabel);
             this.Controls.Add(this.OkButton);
             this.Controls.Add(this.CancelButton);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(469, 258);
             this.Name = "ContactForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
