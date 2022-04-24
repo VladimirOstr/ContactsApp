@@ -98,17 +98,5 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\edit_contact.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\add_contact.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\remove_contact.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\notification.png" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
