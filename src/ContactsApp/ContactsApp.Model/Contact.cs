@@ -56,7 +56,7 @@ namespace ContactsApp.Model
             {
                 if (value.Length > MAXLETTERCOUNT || value.Length == 0)
                 {
-                    throw new ArgumentException();
+                    throw new ArgumentException("Некорректная длина фамилии");
                 }
                 _surname = value;
             }
@@ -74,7 +74,7 @@ namespace ContactsApp.Model
             {
                 if (value.Length > MAXLETTERCOUNT || value.Length == 0)
                 {
-                    throw new ArgumentException();
+                    throw new ArgumentException("Некорректная длина имени");
                 }
                 _name = value;
             }
@@ -92,12 +92,14 @@ namespace ContactsApp.Model
             {
                 if (value.Year < 1900)
                 {
-                    throw new ArgumentException();
+                    throw new ArgumentException("Дата рождения не может быть" +
+                        " меньше 1900г.");
                 }
 
                 if (value > DateTime.Now)
                 {
-                    throw new ArgumentException();
+                    throw new ArgumentException("Дата рождения не может быть" +
+                        " больше сегодняшней даты");
                 }
                 _dateOfBirth = value;
             }
@@ -112,7 +114,7 @@ namespace ContactsApp.Model
             {
                 if (value.Length > MAXLETTERCOUNT || value.Length == 0)
                 {
-                    throw new ArgumentException();
+                    throw new ArgumentException("Некорректная длина email");
                 }
                 _email = value;
             }
@@ -129,7 +131,7 @@ namespace ContactsApp.Model
             {
                 if (value.Length > MAXLETTERCOUNT || value.Length == 0)
                 {
-                    throw new ArgumentException();
+                    throw new ArgumentException("Некорректная длина id");
                 }
                 _idVK = value;
             }
@@ -147,7 +149,7 @@ namespace ContactsApp.Model
             this.IdVK = idVK;
         }
 
-        object ICloneable.Clone()
+        public Object Clone()
         {
             return new Contact(this.Name, this.Surname,
                new PhoneNumber(this.PhoneNumber.Number),
