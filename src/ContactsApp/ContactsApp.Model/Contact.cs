@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace ContactsApp.Model
 {
-    class Contact : ICloneable
+    /// <summary>
+    /// Контакт.
+    /// </summary>
+    public class Contact : ICloneable
     {
         /// <summary>
         /// Фамилия.
@@ -29,11 +32,6 @@ namespace ContactsApp.Model
         private DateTime _dateOfBirth;
 
         /// <summary>
-        /// Номер телефона.
-        /// </summary>
-        private PhoneNumber _phoneNumber;
-
-        /// <summary>
         /// Id VK.
         /// </summary>
         private string _idVK;
@@ -54,9 +52,13 @@ namespace ContactsApp.Model
             }
             set
             {
-                if (value.Length > MAXLETTERCOUNT || value.Length == 0)
+                if (value.Length > MAXLETTERCOUNT)
                 {
-                    throw new ArgumentException("Некорректная длина фамилии");
+                    throw new ArgumentException("Длина фамилии больше" + MAXLETTERCOUNT);
+                }
+                if (value.Length <= 0)
+                {
+                    throw new ArgumentException("Длина фамилии меньше или равна 0");
                 }
                 _surname = value;
             }
@@ -72,15 +74,19 @@ namespace ContactsApp.Model
             }
             set
             {
-                if (value.Length > MAXLETTERCOUNT || value.Length == 0)
+                if (value.Length > MAXLETTERCOUNT)
                 {
-                    throw new ArgumentException("Некорректная длина имени");
+                    throw new ArgumentException("Длина имени больше" + MAXLETTERCOUNT);
+                }
+                if (value.Length <= 0)
+                {
+                    throw new ArgumentException("Длина имени меньше или равна 0");
                 }
                 _name = value;
             }
         }
         /// <summary>
-        /// 
+        /// Возвращает или задает значение даты рождения.
         /// </summary>
         public DateTime DateOfBirth
         {
@@ -104,6 +110,9 @@ namespace ContactsApp.Model
                 _dateOfBirth = value;
             }
         }
+        /// <summary>
+        /// Возвращает или задает значение email.
+        /// </summary>
         public string Email
         {
             get
@@ -112,15 +121,25 @@ namespace ContactsApp.Model
             }
             set
             {
-                if (value.Length > MAXLETTERCOUNT || value.Length == 0)
+                if (value.Length > MAXLETTERCOUNT)
                 {
-                    throw new ArgumentException("Некорректная длина email");
+                    throw new ArgumentException("Длина email больше 50 знаков");
+                }
+                if (value.Length <= 0)
+                {
+                    throw new ArgumentException("Длина email меньше или равна 0");
                 }
                 _email = value;
             }
         }
+        /// <summary>
+        /// Возвращает или задает значение номера телефона.
+        /// </summary>
         public PhoneNumber PhoneNumber { get; set; }
 
+        /// <summary>
+        /// Возвращает или задает значение id VK.
+        /// </summary>
         public string IdVK
         {
             get
@@ -129,14 +148,27 @@ namespace ContactsApp.Model
             }
             set
             {
-                if (value.Length > MAXLETTERCOUNT || value.Length == 0)
+                if (value.Length > 15)
                 {
-                    throw new ArgumentException("Некорректная длина id");
+                    throw new ArgumentException("Длина id больше 15 знаков");
+                }
+                if (value.Length <= 0)
+                {
+                    throw new ArgumentException("Длина id меньше или равна 0");
                 }
                 _idVK = value;
             }
         }
 
+        /// <summary>
+        /// Конструктор класса.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="surname"></param>
+        /// <param name="phoneNumber"></param>
+        /// <param name="dateOfBirth"></param>
+        /// <param name="email"></param>
+        /// <param name="idVK"></param>
         public Contact(string name, string surname,
              PhoneNumber phoneNumber, DateTime dateOfBirth,
              string email, string idVK)
@@ -149,6 +181,10 @@ namespace ContactsApp.Model
             this.IdVK = idVK;
         }
 
+        /// <summary>
+        /// Клонирует объект класса.
+        /// </summary>
+        /// <returns></returns>
         public Object Clone()
         {
             return new Contact(this.Name, this.Surname,
