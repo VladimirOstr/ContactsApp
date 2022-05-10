@@ -9,7 +9,7 @@ namespace ContactsApp.Model
     /// <summary>
     /// Номер телефона.
     /// </summary>
-    class PhoneNumber
+    public class PhoneNumber
     {
 		/// <summary>
 		/// Номер телефона.
