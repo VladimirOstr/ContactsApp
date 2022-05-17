@@ -52,8 +52,9 @@ namespace ContactsApp.View
             this.BirthdayTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.BirthdayTimePicker.Location = new System.Drawing.Point(88, 60);
             this.BirthdayTimePicker.Name = "BirthdayTimePicker";
-            this.BirthdayTimePicker.Size = new System.Drawing.Size(199, 21);
+            this.BirthdayTimePicker.Size = new System.Drawing.Size(199, 24);
             this.BirthdayTimePicker.TabIndex = 80;
+            this.BirthdayTimePicker.ValueChanged += new System.EventHandler(this.BirthdayTimePicker_ValueChanged);
             // 
             // VkTextBox
             // 
@@ -61,8 +62,9 @@ namespace ContactsApp.View
             this.VkTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.VkTextBox.Location = new System.Drawing.Point(88, 141);
             this.VkTextBox.Name = "VkTextBox";
-            this.VkTextBox.Size = new System.Drawing.Size(352, 21);
+            this.VkTextBox.Size = new System.Drawing.Size(352, 24);
             this.VkTextBox.TabIndex = 79;
+            this.VkTextBox.TextChanged += new System.EventHandler(this.VkTextBox_TextChanged);
             // 
             // EmailTextBox
             // 
@@ -70,8 +72,9 @@ namespace ContactsApp.View
             this.EmailTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.EmailTextBox.Location = new System.Drawing.Point(88, 114);
             this.EmailTextBox.Name = "EmailTextBox";
-            this.EmailTextBox.Size = new System.Drawing.Size(352, 21);
+            this.EmailTextBox.Size = new System.Drawing.Size(352, 24);
             this.EmailTextBox.TabIndex = 78;
+            this.EmailTextBox.TextChanged += new System.EventHandler(this.EmailTextBox_TextChanged);
             // 
             // PhoneTextBox
             // 
@@ -79,8 +82,9 @@ namespace ContactsApp.View
             this.PhoneTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.PhoneTextBox.Location = new System.Drawing.Point(88, 87);
             this.PhoneTextBox.Name = "PhoneTextBox";
-            this.PhoneTextBox.Size = new System.Drawing.Size(352, 21);
+            this.PhoneTextBox.Size = new System.Drawing.Size(352, 24);
             this.PhoneTextBox.TabIndex = 77;
+            this.PhoneTextBox.TextChanged += new System.EventHandler(this.PhoneTextBox_TextChanged);
             // 
             // NameTextBox
             // 
@@ -88,8 +92,9 @@ namespace ContactsApp.View
             this.NameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.NameTextBox.Location = new System.Drawing.Point(88, 33);
             this.NameTextBox.Name = "NameTextBox";
-            this.NameTextBox.Size = new System.Drawing.Size(352, 21);
+            this.NameTextBox.Size = new System.Drawing.Size(352, 24);
             this.NameTextBox.TabIndex = 76;
+            this.NameTextBox.TextChanged += new System.EventHandler(this.NameTextBox_TextChanged);
             // 
             // SurnameTextBox
             // 
@@ -97,8 +102,9 @@ namespace ContactsApp.View
             this.SurnameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.SurnameTextBox.Location = new System.Drawing.Point(88, 6);
             this.SurnameTextBox.Name = "SurnameTextBox";
-            this.SurnameTextBox.Size = new System.Drawing.Size(352, 21);
+            this.SurnameTextBox.Size = new System.Drawing.Size(352, 24);
             this.SurnameTextBox.TabIndex = 75;
+            this.SurnameTextBox.TextChanged += new System.EventHandler(this.SurnameTextBox_TextChanged);
             // 
             // VkLabel
             // 
@@ -108,7 +114,7 @@ namespace ContactsApp.View
             this.VkLabel.Location = new System.Drawing.Point(34, 144);
             this.VkLabel.MinimumSize = new System.Drawing.Size(48, 15);
             this.VkLabel.Name = "VkLabel";
-            this.VkLabel.Size = new System.Drawing.Size(48, 15);
+            this.VkLabel.Size = new System.Drawing.Size(61, 18);
             this.VkLabel.TabIndex = 74;
             this.VkLabel.Text = "vk.com:";
             // 
@@ -119,7 +125,7 @@ namespace ContactsApp.View
             this.EmailLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.EmailLabel.Location = new System.Drawing.Point(36, 117);
             this.EmailLabel.Name = "EmailLabel";
-            this.EmailLabel.Size = new System.Drawing.Size(46, 15);
+            this.EmailLabel.Size = new System.Drawing.Size(54, 18);
             this.EmailLabel.TabIndex = 73;
             this.EmailLabel.Text = "E-mail:";
             // 
@@ -130,7 +136,7 @@ namespace ContactsApp.View
             this.PhoneLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.PhoneLabel.Location = new System.Drawing.Point(36, 90);
             this.PhoneLabel.Name = "PhoneLabel";
-            this.PhoneLabel.Size = new System.Drawing.Size(46, 15);
+            this.PhoneLabel.Size = new System.Drawing.Size(55, 18);
             this.PhoneLabel.TabIndex = 72;
             this.PhoneLabel.Text = "Phone:";
             // 
@@ -141,7 +147,7 @@ namespace ContactsApp.View
             this.BirthdayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.BirthdayLabel.Location = new System.Drawing.Point(3, 63);
             this.BirthdayLabel.Name = "BirthdayLabel";
-            this.BirthdayLabel.Size = new System.Drawing.Size(79, 15);
+            this.BirthdayLabel.Size = new System.Drawing.Size(97, 18);
             this.BirthdayLabel.TabIndex = 71;
             this.BirthdayLabel.Text = "Date Of Birth:";
             // 
@@ -152,7 +158,7 @@ namespace ContactsApp.View
             this.NameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.NameLabel.Location = new System.Drawing.Point(38, 36);
             this.NameLabel.Name = "NameLabel";
-            this.NameLabel.Size = new System.Drawing.Size(44, 15);
+            this.NameLabel.Size = new System.Drawing.Size(52, 18);
             this.NameLabel.TabIndex = 70;
             this.NameLabel.Text = "Name:";
             // 
@@ -163,7 +169,7 @@ namespace ContactsApp.View
             this.SurnameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.SurnameLabel.Location = new System.Drawing.Point(21, 9);
             this.SurnameLabel.Name = "SurnameLabel";
-            this.SurnameLabel.Size = new System.Drawing.Size(61, 15);
+            this.SurnameLabel.Size = new System.Drawing.Size(72, 18);
             this.SurnameLabel.TabIndex = 69;
             this.SurnameLabel.Text = "Surname:";
             // 
@@ -176,6 +182,7 @@ namespace ContactsApp.View
             this.OkButton.TabIndex = 67;
             this.OkButton.Text = "OK";
             this.OkButton.UseVisualStyleBackColor = true;
+            this.OkButton.Click += new System.EventHandler(this.OkButton_Click_1);
             // 
             // CancelButton
             // 
@@ -186,6 +193,7 @@ namespace ContactsApp.View
             this.CancelButton.TabIndex = 68;
             this.CancelButton.Text = "Cancel";
             this.CancelButton.UseVisualStyleBackColor = true;
+            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click_1);
             // 
             // ContactForm
             // 

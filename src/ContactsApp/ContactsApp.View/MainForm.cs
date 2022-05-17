@@ -13,7 +13,7 @@ namespace ContactsApp.View
 {
     public partial class MainForm : Form
     {
-        private Project _project = new Project();
+        private Project _project { get; set; }
 
         private void UpdateListBox()
         {
@@ -99,6 +99,7 @@ namespace ContactsApp.View
         public MainForm()
         {
             InitializeComponent();
+            _project = new Project();
         }
 
         private void ContactsListBox_SelectedIndexChanged(object sender, EventArgs e)
