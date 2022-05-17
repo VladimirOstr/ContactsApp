@@ -65,6 +65,7 @@ namespace ContactsApp.View
                 return;
             }
             _project.Contacts.RemoveAt(index);
+            InfoGroupBox.Visible = false;
         }
 
         private void UpdateSelectedContact(int index)
