@@ -189,6 +189,7 @@ namespace ContactsApp.View
             this.NotificationPanel.Name = "NotificationPanel";
             this.NotificationPanel.Size = new System.Drawing.Size(626, 300);
             this.NotificationPanel.TabIndex = 1;
+            this.NotificationPanel.Visible = false;
             // 
             // BirthdayBoyLabel
             // 
