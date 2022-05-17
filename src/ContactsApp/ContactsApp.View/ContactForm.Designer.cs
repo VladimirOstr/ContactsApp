@@ -176,6 +176,7 @@ namespace ContactsApp.View
             // OkButton
             // 
             this.OkButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.OkButton.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.OkButton.Location = new System.Drawing.Point(246, 195);
             this.OkButton.Name = "OkButton";
             this.OkButton.Size = new System.Drawing.Size(91, 20);

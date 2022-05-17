@@ -13,7 +13,7 @@ namespace ContactsApp.View
 {
     public partial class ContactForm : Form
     {
-        private Contact _contact { get; set;}
+        private Contact _contact;
         private string _surnameError { get; set; }
         private string _nameError { get; set; }
         private string _dateOfBirthError { get; set; }
@@ -33,6 +33,18 @@ namespace ContactsApp.View
             UpdateForm();
         }
 
+        public Contact Contact
+        {
+            get
+            {
+                return _contact;
+            }
+            set
+            {
+                _contact = value;
+            }
+        }
+
         private void UpdateForm()
         {
             SurnameTextBox.Text = _contact.Surname;
@@ -42,10 +54,15 @@ namespace ContactsApp.View
             EmailTextBox.Text = _contact.Email;
             VkTextBox.Text = _contact.IdVK;
         }
-
+        
+        //Исправить закрытие окна
+        //Закрыватся, даже если есть ошибка в данных
         private void OkButton_Click_1(object sender, EventArgs e)
         {
-            CheckFromOnErrors();
+            if (CheckFromOnErrors())
+            {
+                Close();
+            }
         }
 
         private void CancelButton_Click_1(object sender, EventArgs e)
@@ -149,32 +166,39 @@ namespace ContactsApp.View
             }
         }
 
-        private void CheckFromOnErrors()
+        private bool CheckFromOnErrors()
         {
             if (_nameError != string.Empty)
             {
                 MessageBox.Show(_nameError);
+                return false;
             }
             if (_surnameError != string.Empty)
             {
                 MessageBox.Show(_surnameError);
+                return false;
             }
             if (_dateOfBirthError != string.Empty)
             {
                 MessageBox.Show(_dateOfBirthError);
+                return false;
             }
             if (_phoneNumberError != string.Empty)
             {
                 MessageBox.Show(_phoneNumberError);
+                return false;
             }
             if (_emailError != string.Empty)
             {
                 MessageBox.Show(_emailError);
+                return false;
             }
             if (_IdVKError != string.Empty)
             {
                 MessageBox.Show(_IdVKError);
+                return false;
             }
+            return true;
         }
 
     }

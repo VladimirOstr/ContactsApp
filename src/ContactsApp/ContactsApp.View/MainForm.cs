@@ -26,29 +26,12 @@ namespace ContactsApp.View
 
         private void AddContact()
         {
-            var randomNames = new List<string>
+            ContactForm contactForm = new ContactForm();
+            contactForm.ShowDialog();
+            if (contactForm.DialogResult == DialogResult.OK)
             {
-                "Иван", "Петр", "Владимир", "Никита"
-            };
-            var randomSurnames = new List<string>
-            {
-                "Петров", "Иванов", "Путин", "Зайка"
-            };
-            var randomEmails = new List<string>
-            {
-                "petrov@mail.ru", "ivanov@mail.ru", "pop@mail.ru",
-                "pap@mail.ru"
-            };
-            Random random = new Random();
-            Contact contact = new Contact(
-                randomNames[random.Next(randomNames.Count)],
-                randomSurnames[random.Next(randomSurnames.Count)],
-                new PhoneNumber(79138040329),
-                new DateTime(random.Next(1900,2022),
-                random.Next(1,12), random.Next(1,28)),
-                randomEmails[random.Next(randomEmails.Count)],
-                new Random().Next().ToString());
-            _project.Contacts.Add(contact);
+                _project.Contacts.Add(contactForm.Contact);
+            }
         }
 
         private void RemoveContact(int index)
@@ -150,7 +133,8 @@ namespace ContactsApp.View
 
         private void editContactToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            ContactForm contactForm = new ContactForm();
+            contactForm.Show();
         }
 
         private void removeContactToolStripMenuItem_Click(object sender, EventArgs e)
@@ -163,6 +147,34 @@ namespace ContactsApp.View
         {
             AboutForm aboutForm = new AboutForm();
             aboutForm.Show();
+        }
+
+        private void addRandomContactToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var randomNames = new List<string>
+            {
+                "Иван", "Петр", "Владимир", "Никита"
+            };
+            var randomSurnames = new List<string>
+            {
+                "Петров", "Иванов", "Путин", "Зайка"
+            };
+            var randomEmails = new List<string>
+            {
+                "petrov@mail.ru", "ivanov@mail.ru", "pop@mail.ru",
+                "pap@mail.ru"
+            };
+            Random random = new Random();
+            Contact contact = new Contact(
+                randomNames[random.Next(randomNames.Count)],
+                randomSurnames[random.Next(randomSurnames.Count)],
+                new PhoneNumber(79138040329),
+                new DateTime(random.Next(1900, 2022),
+                random.Next(1, 12), random.Next(1, 28)),
+                randomEmails[random.Next(randomEmails.Count)],
+                new Random().Next().ToString());
+            _project.Contacts.Add(contact);
+            UpdateListBox();
         }
     }
 }
