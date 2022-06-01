@@ -61,9 +61,9 @@ namespace ContactsApp.View
             this.addContactToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editContactToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeContactToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addRandomContactToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addRandomContactToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.MainSplitContainer)).BeginInit();
             this.MainSplitContainer.Panel1.SuspendLayout();
             this.MainSplitContainer.Panel2.SuspendLayout();
@@ -439,6 +439,13 @@ namespace ContactsApp.View
             this.removeContactToolStripMenuItem.Text = "Remove Contact";
             this.removeContactToolStripMenuItem.Click += new System.EventHandler(this.removeContactToolStripMenuItem_Click);
             // 
+            // addRandomContactToolStripMenuItem
+            // 
+            this.addRandomContactToolStripMenuItem.Name = "addRandomContactToolStripMenuItem";
+            this.addRandomContactToolStripMenuItem.Size = new System.Drawing.Size(235, 26);
+            this.addRandomContactToolStripMenuItem.Text = "Add Random Contact";
+            this.addRandomContactToolStripMenuItem.Click += new System.EventHandler(this.addRandomContactToolStripMenuItem_Click);
+            // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -454,13 +461,6 @@ namespace ContactsApp.View
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
-            // addRandomContactToolStripMenuItem
-            // 
-            this.addRandomContactToolStripMenuItem.Name = "addRandomContactToolStripMenuItem";
-            this.addRandomContactToolStripMenuItem.Size = new System.Drawing.Size(235, 26);
-            this.addRandomContactToolStripMenuItem.Text = "Add Random Contact";
-            this.addRandomContactToolStripMenuItem.Click += new System.EventHandler(this.addRandomContactToolStripMenuItem_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -473,7 +473,7 @@ namespace ContactsApp.View
             this.MinimumSize = new System.Drawing.Size(550, 400);
             this.Name = "MainForm";
             this.Text = "ContactsApp";
-            this.Load += new System.EventHandler(this.MainForm_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.MainSplitContainer.Panel1.ResumeLayout(false);
             this.MainSplitContainer.Panel1.PerformLayout();
             this.MainSplitContainer.Panel2.ResumeLayout(false);

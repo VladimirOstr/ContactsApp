@@ -140,7 +140,7 @@ namespace ContactsApp.Model
         /// <summary>
         /// Возвращает или задает значение id VK.
         /// </summary>
-        public string IdVK
+        public string idVK
         {
             get
             {
@@ -178,7 +178,7 @@ namespace ContactsApp.Model
             this.PhoneNumber = phoneNumber;
             this.DateOfBirth = dateOfBirth;
             this.Email = email;
-            this.IdVK = idVK;
+            this.idVK = idVK;
         }
 
         /// <summary>
@@ -189,7 +189,7 @@ namespace ContactsApp.Model
         {
             return new Contact(this.Name, this.Surname,
                new PhoneNumber(this.PhoneNumber.Number),
-               this.DateOfBirth, this.Email, this.IdVK);
+               this.DateOfBirth, this.Email, this.idVK);
         }
     }
 }

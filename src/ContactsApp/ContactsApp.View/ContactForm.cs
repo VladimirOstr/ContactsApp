@@ -22,14 +22,14 @@ namespace ContactsApp.View
 
         private string _emailError { get; set; }
 
-        private string _IdVKError { get; set; }
+        private string _idVKError { get; set; }
 
         public ContactForm()
         {
             InitializeComponent();
-            _contact = new Contact("Иван", "Иванов",
-                new PhoneNumber(71111111111),
-                DateTime.Now, "ivanov@mail.ru", "121212");
+            _contact = new Contact(" ", " ",
+                new PhoneNumber(7),
+                DateTime.Now, " ", " ");
             UpdateForm();
         }
 
@@ -45,14 +45,14 @@ namespace ContactsApp.View
             }
         }
 
-        private void UpdateForm()
+        public void UpdateForm()
         {
             SurnameTextBox.Text = _contact.Surname;
             NameTextBox.Text = _contact.Name;
             BirthdayTimePicker.Value = _contact.DateOfBirth;
             PhoneTextBox.Text = _contact.PhoneNumber.Number.ToString();
             EmailTextBox.Text = _contact.Email;
-            VkTextBox.Text = _contact.IdVK;
+            VkTextBox.Text = _contact.idVK;
         }
         
         //Исправить закрытие окна
@@ -62,7 +62,9 @@ namespace ContactsApp.View
             if (CheckFromOnErrors())
             {
                 Close();
+                return;
             }
+            DialogResult = DialogResult.None;
         }
 
         private void CancelButton_Click_1(object sender, EventArgs e)
@@ -155,14 +157,14 @@ namespace ContactsApp.View
         {
             try
             {
-                _contact.IdVK = VkTextBox.Text;
+                _contact.idVK = VkTextBox.Text;
                 VkTextBox.BackColor = Color.White;
-                _IdVKError = string.Empty;
+                _idVKError = string.Empty;
             }
             catch (ArgumentException exception)
             {
                 VkTextBox.BackColor = Color.LightPink;
-                _IdVKError = exception.Message;
+                _idVKError = exception.Message;
             }
         }
 
@@ -193,9 +195,9 @@ namespace ContactsApp.View
                 MessageBox.Show(_emailError);
                 return false;
             }
-            if (_IdVKError != string.Empty)
+            if (_idVKError != string.Empty)
             {
-                MessageBox.Show(_IdVKError);
+                MessageBox.Show(_idVKError);
                 return false;
             }
             return true;
