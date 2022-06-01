@@ -24,6 +24,9 @@ namespace ContactsApp.View
 
         private string _idVKError { get; set; }
 
+        /// <summary>
+        /// Конструктор.
+        /// </summary>
         public ContactForm()
         {
             InitializeComponent();
@@ -45,6 +48,9 @@ namespace ContactsApp.View
             }
         }
 
+        /// <summary>
+        /// Обновление формы.
+        /// </summary>
         public void UpdateForm()
         {
             SurnameTextBox.Text = _contact.Surname;
@@ -55,8 +61,12 @@ namespace ContactsApp.View
             VkTextBox.Text = _contact.idVK;
         }
         
-        //Исправить закрытие окна
-        //Закрыватся, даже если есть ошибка в данных
+      
+        /// <summary>
+        /// Действие для кнопки ОК.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OkButton_Click_1(object sender, EventArgs e)
         {
             if (CheckFromOnErrors())
@@ -67,11 +77,21 @@ namespace ContactsApp.View
             DialogResult = DialogResult.None;
         }
 
+        /// <summary>
+        /// Действие для кнопки Cancel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CancelButton_Click_1(object sender, EventArgs e)
         {
             Close();
         }
 
+        /// <summary>
+        /// Действие при изменении поля Surname
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SurnameTextBox_TextChanged(object sender, EventArgs e)
         {
             try
@@ -87,6 +107,11 @@ namespace ContactsApp.View
             }
         }
 
+        /// <summary>
+        /// Действие при изменении поля Name
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void NameTextBox_TextChanged(object sender, EventArgs e)
         {
             try
@@ -102,6 +127,11 @@ namespace ContactsApp.View
             }
         }
 
+        /// <summary>
+        /// Действие при изменении поля Birthday
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BirthdayTimePicker_ValueChanged(object sender, EventArgs e)
         {
             try
@@ -117,6 +147,11 @@ namespace ContactsApp.View
             }
         }
 
+        /// <summary>
+        /// Действие при изменении поля PhoneNumber
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PhoneTextBox_TextChanged(object sender, EventArgs e)
         {
             try
@@ -138,6 +173,11 @@ namespace ContactsApp.View
             }
         }
 
+        /// <summary>
+        /// Действие при изменении поля Email
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void EmailTextBox_TextChanged(object sender, EventArgs e)
         {
             try
@@ -153,6 +193,11 @@ namespace ContactsApp.View
             }
         }
 
+        /// <summary>
+        /// Действие при изменении поля VK
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void VkTextBox_TextChanged(object sender, EventArgs e)
         {
             try
@@ -168,6 +213,10 @@ namespace ContactsApp.View
             }
         }
 
+        /// <summary>
+        /// Проверка на корректность ввода
+        /// </summary>
+        /// <returns></returns>
         private bool CheckFromOnErrors()
         {
             if (_nameError != string.Empty)

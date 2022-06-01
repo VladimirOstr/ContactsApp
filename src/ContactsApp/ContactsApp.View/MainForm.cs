@@ -15,6 +15,9 @@ namespace ContactsApp.View
     {
         private Project _project { get; set; }
 
+        /// <summary>
+        /// Обновляет список контактов.
+        /// </summary>
         private void UpdateListBox()
         {
             ContactsListBox.Items.Clear();
@@ -24,6 +27,9 @@ namespace ContactsApp.View
             }
         }
 
+        /// <summary>
+        /// Добавляет контакт.
+        /// </summary>
         private void AddContact()
         {
             ContactForm contactForm = new ContactForm();
@@ -34,6 +40,10 @@ namespace ContactsApp.View
             }
         }
 
+        /// <summary>
+        /// Редактирует контакт.
+        /// </summary>
+        /// <param name="index"></param>
         private void EditContact(int index)
         {
             if (index == -1 || ContactsListBox.Items.Count == 0)
@@ -52,6 +62,10 @@ namespace ContactsApp.View
             }
         }
 
+        /// <summary>
+        /// Удаляет контакт.
+        /// </summary>
+        /// <param name="index"></param>
         private void RemoveContact(int index)
         {
             if (index == -1 || ContactsListBox.Items.Count == 0)
@@ -69,6 +83,10 @@ namespace ContactsApp.View
             InfoGroupBox.Visible = false;
         }
 
+        /// <summary>
+        /// Обновляет выбранный контакт.
+        /// </summary>
+        /// <param name="index"></param>
         private void UpdateSelectedContact(int index)
         {
             if (index == -1)
@@ -87,6 +105,9 @@ namespace ContactsApp.View
             InfoGroupBox.Visible = true;
         }
 
+        /// <summary>
+        /// Очищает выбранный контакт.
+        /// </summary>
         private void ClearSelectedContact()
         {
             SurnameTextBox.Text = String.Empty;
@@ -97,12 +118,20 @@ namespace ContactsApp.View
             EmailTextBox.Text = String.Empty;
         }
 
+        /// <summary>
+        /// Конструктор.
+        /// </summary>
         public MainForm()
         {
             InitializeComponent();
             _project = new Project();
         }
 
+        /// <summary>
+        /// Действия для выбранного контакта.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ContactsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
            
@@ -110,25 +139,45 @@ namespace ContactsApp.View
         }
 
 
+        /// <summary>
+        /// Добавление контакта через кнопку.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AddContactButton_Click(object sender, EventArgs e)
         {
             AddContact();
             UpdateListBox();
         }
 
-        private void EditContactButton_Click(object sender, EventArgs e)
+       /// <summary>
+       /// Редактирование контакта через кнопку.
+       /// </summary>
+       /// <param name="sender"></param>
+       /// <param name="e"></param>
+       private void EditContactButton_Click(object sender, EventArgs e)
         {
             EditContact(ContactsListBox.SelectedIndex);
             UpdateListBox();
             UpdateSelectedContact(ContactsListBox.SelectedIndex);
         }
 
+        /// <summary>
+        /// Удаление контакта через кнопку.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RemoveContactButton_Click(object sender, EventArgs e)
         {
             RemoveContact(ContactsListBox.SelectedIndex);
             UpdateListBox();
         }
 
+        /// <summary>
+        /// Выход через ToolStripMenu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var result = MessageBox.Show("Are you sure want to exit?", 
@@ -140,12 +189,22 @@ namespace ContactsApp.View
             Application.Exit();
         }
 
+        /// <summary>
+        /// Добавление контакта через ToolStripMenu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void addContactToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddContact();
             UpdateListBox();
         }
 
+        /// <summary>
+        /// Редактирование контакта через ToolStripMenu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void editContactToolStripMenuItem_Click(object sender, EventArgs e)
         {
             EditContact(ContactsListBox.SelectedIndex);
@@ -153,18 +212,33 @@ namespace ContactsApp.View
             UpdateSelectedContact(ContactsListBox.SelectedIndex);
         }
 
+        /// <summary>
+        /// Удаление контакта через ToolStripMenu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void removeContactToolStripMenuItem_Click(object sender, EventArgs e)
         {
             RemoveContact(ContactsListBox.SelectedIndex);
             UpdateListBox();
         }
 
+        /// <summary>
+        /// Открытие окна About через ToolStripMenu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AboutForm aboutForm = new AboutForm();
             aboutForm.Show();
         }
 
+        /// <summary>
+        /// Добавление рандомного контакта через ToolStripMenu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void addRandomContactToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var randomNames = new List<string>
@@ -193,6 +267,11 @@ namespace ContactsApp.View
             UpdateListBox();
         }
 
+        /// <summary>
+        /// Действия во время закрытия окна
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             DialogResult result = MessageBox.Show
