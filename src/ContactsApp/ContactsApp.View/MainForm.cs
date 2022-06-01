@@ -13,6 +13,9 @@ namespace ContactsApp.View
 {
     public partial class MainForm : Form
     {
+        /// <summary>
+        /// Проект контактов.
+        /// </summary>
         private Project _project { get; set; }
 
         /// <summary>
@@ -53,7 +56,6 @@ namespace ContactsApp.View
             Contact editContact = _project.Contacts[index];
             ContactForm contactForm = new ContactForm();
             contactForm.Contact = (Contact)editContact.Clone();
-            contactForm.UpdateForm();
             contactForm.ShowDialog();
             if (contactForm.DialogResult == DialogResult.OK)
             {
@@ -80,7 +82,13 @@ namespace ContactsApp.View
                 return;
             }
             _project.Contacts.RemoveAt(index);
-            InfoGroupBox.Visible = false;
+            SurnameTextBox.Text = "";
+            NameTextBox.Text = "";
+            BirthdayTimePicker.Value = DateTime.Now;
+            PhoneTextBox.Text = "";
+            EmailTextBox.Text = "";
+            VkTextBox.Text = "";
+            InfoGroupBox.Enabled = false;
         }
 
         /// <summary>
@@ -102,7 +110,7 @@ namespace ContactsApp.View
             BirthdayTimePicker.Value = contact.DateOfBirth;
             VkTextBox.Text = contact.idVK;
             EmailTextBox.Text = contact.Email;
-            InfoGroupBox.Visible = true;
+            InfoGroupBox.Enabled = true;
         }
 
         /// <summary>
@@ -137,7 +145,6 @@ namespace ContactsApp.View
            
             UpdateSelectedContact(ContactsListBox.SelectedIndex);
         }
-
 
         /// <summary>
         /// Добавление контакта через кнопку.

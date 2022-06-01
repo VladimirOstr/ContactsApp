@@ -13,15 +13,54 @@ namespace ContactsApp.View
 {
     public partial class ContactForm : Form
     {
+        /// <summary>
+        /// Текст ошибки.
+        /// </summary>
+        private string errorText = "";
+
+        /// <summary>
+        /// Цвет TextBox при вводе корректных данных.
+        /// </summary>
+        private Color _сorrectDataColor = Color.White;
+
+        /// <summary>
+        /// Цвет TextBox при вводе некорректных данных.
+        /// </summary>
+        private Color _incorrectDataColor = Color.LightPink;
+        
+        /// <summary>
+        /// Контакт.
+        /// </summary>
         private Contact _contact;
+
+        /// <summary>
+        /// Ошибка в фамилии.
+        /// </summary>
         private string _surnameError { get; set; }
+
+        /// <summary>
+        /// Ошибка в имени.
+        /// </summary>
         private string _nameError { get; set; }
+
+        /// <summary>
+        /// Ошибка в дате рождения.
+        /// </summary>
         private string _dateOfBirthError { get; set; }
 
+        /// <summary>
+        /// Ошибка в номере телефона.
+        /// </summary>
         private string _phoneNumberError { get; set; }
 
+        /// <summary>
+        /// Ошибка в email.
+        /// </summary>
         private string _emailError { get; set; }
 
+        /// <summary>
+        /// Ошибка в id VK.
+        /// </summary>
         private string _idVKError { get; set; }
 
         /// <summary>
@@ -36,6 +75,9 @@ namespace ContactsApp.View
             UpdateForm();
         }
 
+        /// <summary>
+        /// Конструктор поля контакт.
+        /// </summary>
         public Contact Contact
         {
             get
@@ -45,13 +87,14 @@ namespace ContactsApp.View
             set
             {
                 _contact = value;
+                UpdateForm();
             }
         }
 
         /// <summary>
         /// Обновление формы.
         /// </summary>
-        public void UpdateForm()
+        private void UpdateForm()
         {
             SurnameTextBox.Text = _contact.Surname;
             NameTextBox.Text = _contact.Name;
@@ -60,7 +103,6 @@ namespace ContactsApp.View
             EmailTextBox.Text = _contact.Email;
             VkTextBox.Text = _contact.idVK;
         }
-        
       
         /// <summary>
         /// Действие для кнопки ОК.
@@ -84,6 +126,7 @@ namespace ContactsApp.View
         /// <param name="e"></param>
         private void CancelButton_Click_1(object sender, EventArgs e)
         {
+            DialogResult = DialogResult.Cancel;
             Close();
         }
 
@@ -97,12 +140,12 @@ namespace ContactsApp.View
             try
             {
                 _contact.Surname = SurnameTextBox.Text;
-                SurnameTextBox.BackColor = Color.White;
+                SurnameTextBox.BackColor = _сorrectDataColor;
                 _surnameError = string.Empty;
             }
             catch (ArgumentException exception)
             {
-                SurnameTextBox.BackColor = Color.LightPink;
+                SurnameTextBox.BackColor = _incorrectDataColor;
                 _surnameError = exception.Message;
             }
         }
@@ -117,12 +160,12 @@ namespace ContactsApp.View
             try
             {
                 _contact.Name = NameTextBox.Text;
-                NameTextBox.BackColor = Color.White;
+                NameTextBox.BackColor = _сorrectDataColor;
                 _nameError = string.Empty;
             }
             catch (ArgumentException exception)
             {
-                NameTextBox.BackColor = Color.LightPink;
+                NameTextBox.BackColor = _incorrectDataColor;
                 _nameError = exception.Message;
             }
         }
@@ -137,12 +180,12 @@ namespace ContactsApp.View
             try
             {
                 _contact.DateOfBirth = BirthdayTimePicker.Value;
-                BirthdayTimePicker.BackColor = Color.White;
+                BirthdayTimePicker.BackColor = _сorrectDataColor;
                 _dateOfBirthError = string.Empty;
             }
             catch (ArgumentException exception)
             {
-                BirthdayTimePicker.BackColor = Color.LightPink;
+                BirthdayTimePicker.BackColor = _incorrectDataColor;
                 _dateOfBirthError = exception.Message;
             }
         }
@@ -157,18 +200,18 @@ namespace ContactsApp.View
             try
             {
                 _contact.PhoneNumber.Number = long.Parse(PhoneTextBox.Text);
-                PhoneTextBox.BackColor = Color.White;
+                PhoneTextBox.BackColor = _сorrectDataColor;
                 _phoneNumberError = string.Empty;
             }
             catch (ArgumentException exception)
             {
                 
-                PhoneTextBox.BackColor = Color.LightPink;
+                PhoneTextBox.BackColor = _incorrectDataColor;
                 _phoneNumberError = exception.Message;
             }
             catch(System.FormatException exception)
             {
-                PhoneTextBox.BackColor = Color.LightPink;
+                PhoneTextBox.BackColor = _incorrectDataColor;
                 _phoneNumberError = exception.Message;
             }
         }
@@ -183,12 +226,12 @@ namespace ContactsApp.View
             try
             {
                 _contact.Email = EmailTextBox.Text;
-                EmailTextBox.BackColor = Color.White;
+                EmailTextBox.BackColor = _сorrectDataColor;
                 _emailError = string.Empty;
             }
             catch (ArgumentException exception)
             {
-                EmailTextBox.BackColor = Color.LightPink;
+                EmailTextBox.BackColor = _incorrectDataColor;
                 _emailError = exception.Message;
             }
         }
@@ -203,12 +246,12 @@ namespace ContactsApp.View
             try
             {
                 _contact.idVK = VkTextBox.Text;
-                VkTextBox.BackColor = Color.White;
+                VkTextBox.BackColor = _сorrectDataColor;
                 _idVKError = string.Empty;
             }
             catch (ArgumentException exception)
             {
-                VkTextBox.BackColor = Color.LightPink;
+                VkTextBox.BackColor = _incorrectDataColor;
                 _idVKError = exception.Message;
             }
         }
@@ -221,32 +264,44 @@ namespace ContactsApp.View
         {
             if (_nameError != string.Empty)
             {
-                MessageBox.Show(_nameError);
-                return false;
+                //MessageBox.Show(_nameError);
+                errorText += _nameError;
+                //return false;
             }
             if (_surnameError != string.Empty)
             {
-                MessageBox.Show(_surnameError);
-                return false;
+                //MessageBox.Show(_surnameError);
+                errorText += _surnameError;
+                //return false;
             }
             if (_dateOfBirthError != string.Empty)
             {
-                MessageBox.Show(_dateOfBirthError);
-                return false;
+                //MessageBox.Show(_dateOfBirthError);
+                errorText += _dateOfBirthError;
+                //return false;
             }
             if (_phoneNumberError != string.Empty)
             {
-                MessageBox.Show(_phoneNumberError);
-                return false;
+                //MessageBox.Show(_phoneNumberError);
+                errorText += _phoneNumberError;
+                //return false;
             }
             if (_emailError != string.Empty)
             {
-                MessageBox.Show(_emailError);
-                return false;
+                //MessageBox.Show(_emailError);
+                errorText += _emailError;
+                //return false;
             }
             if (_idVKError != string.Empty)
             {
-                MessageBox.Show(_idVKError);
+                //MessageBox.Show(_idVKError);
+                errorText += _idVKError;
+                //return false;
+            }
+            if (errorText != string.Empty)
+            {
+                MessageBox.Show(errorText, "Warning",
+                MessageBoxButtons.OKCancel);
                 return false;
             }
             return true;

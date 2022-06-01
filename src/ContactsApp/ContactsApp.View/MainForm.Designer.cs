@@ -235,12 +235,12 @@ namespace ContactsApp.View
             this.InfoGroupBox.Controls.Add(this.NameLabel);
             this.InfoGroupBox.Controls.Add(this.SurnameLabel);
             this.InfoGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.InfoGroupBox.Enabled = false;
             this.InfoGroupBox.Location = new System.Drawing.Point(0, 0);
             this.InfoGroupBox.Name = "InfoGroupBox";
             this.InfoGroupBox.Size = new System.Drawing.Size(626, 561);
             this.InfoGroupBox.TabIndex = 0;
             this.InfoGroupBox.TabStop = false;
-            this.InfoGroupBox.Visible = false;
             // 
             // BirthdayTimePicker
             // 
