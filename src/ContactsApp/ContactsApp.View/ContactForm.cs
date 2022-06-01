@@ -13,7 +13,7 @@ namespace ContactsApp.View
 {
     public partial class ContactForm : Form
     {
-        private Contact _contact { get; set;}
+        private Contact _contact;
         private string _surnameError { get; set; }
         private string _nameError { get; set; }
         private string _dateOfBirthError { get; set; }
@@ -22,30 +22,49 @@ namespace ContactsApp.View
 
         private string _emailError { get; set; }
 
-        private string _IdVKError { get; set; }
+        private string _idVKError { get; set; }
 
         public ContactForm()
         {
             InitializeComponent();
-            _contact = new Contact("Иван", "Иванов",
-                new PhoneNumber(71111111111),
-                DateTime.Now, "ivanov@mail.ru", "121212");
+            _contact = new Contact(" ", " ",
+                new PhoneNumber(7),
+                DateTime.Now, " ", " ");
             UpdateForm();
         }
 
-        private void UpdateForm()
+        public Contact Contact
+        {
+            get
+            {
+                return _contact;
+            }
+            set
+            {
+                _contact = value;
+            }
+        }
+
+        public void UpdateForm()
         {
             SurnameTextBox.Text = _contact.Surname;
             NameTextBox.Text = _contact.Name;
             BirthdayTimePicker.Value = _contact.DateOfBirth;
             PhoneTextBox.Text = _contact.PhoneNumber.Number.ToString();
             EmailTextBox.Text = _contact.Email;
-            VkTextBox.Text = _contact.IdVK;
+            VkTextBox.Text = _contact.idVK;
         }
-
+        
+        //Исправить закрытие окна
+        //Закрыватся, даже если есть ошибка в данных
         private void OkButton_Click_1(object sender, EventArgs e)
         {
-            CheckFromOnErrors();
+            if (CheckFromOnErrors())
+            {
+                Close();
+                return;
+            }
+            DialogResult = DialogResult.None;
         }
 
         private void CancelButton_Click_1(object sender, EventArgs e)
@@ -138,43 +157,50 @@ namespace ContactsApp.View
         {
             try
             {
-                _contact.IdVK = VkTextBox.Text;
+                _contact.idVK = VkTextBox.Text;
                 VkTextBox.BackColor = Color.White;
-                _IdVKError = string.Empty;
+                _idVKError = string.Empty;
             }
             catch (ArgumentException exception)
             {
                 VkTextBox.BackColor = Color.LightPink;
-                _IdVKError = exception.Message;
+                _idVKError = exception.Message;
             }
         }
 
-        private void CheckFromOnErrors()
+        private bool CheckFromOnErrors()
         {
             if (_nameError != string.Empty)
             {
                 MessageBox.Show(_nameError);
+                return false;
             }
             if (_surnameError != string.Empty)
             {
                 MessageBox.Show(_surnameError);
+                return false;
             }
             if (_dateOfBirthError != string.Empty)
             {
                 MessageBox.Show(_dateOfBirthError);
+                return false;
             }
             if (_phoneNumberError != string.Empty)
             {
                 MessageBox.Show(_phoneNumberError);
+                return false;
             }
             if (_emailError != string.Empty)
             {
                 MessageBox.Show(_emailError);
+                return false;
             }
-            if (_IdVKError != string.Empty)
+            if (_idVKError != string.Empty)
             {
-                MessageBox.Show(_IdVKError);
+                MessageBox.Show(_idVKError);
+                return false;
             }
+            return true;
         }
 
     }
