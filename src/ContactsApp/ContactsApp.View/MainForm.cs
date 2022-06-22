@@ -30,6 +30,7 @@ namespace ContactsApp.View
         {
             InitializeComponent();
             Project = new Project();
+            Project = ProjectSerializer.LoadFromFile();
             currentContacts = new List<Contact>(Project.SortBySurname());
             UpdateListBox();
         }
@@ -59,6 +60,7 @@ namespace ContactsApp.View
             {
                 Project.Contacts.Add(contactForm.Contact);
                 currentContacts.Add(contactForm.Contact);
+                ProjectSerializer.SaveToFile(Project);
             }
             ClearSelectedContact();
         }
@@ -92,6 +94,7 @@ namespace ContactsApp.View
                 Project.Contacts.Insert(contactIndex, contactForm.Contact);
 
                 ContactsListBox.Items.Insert(index, contactForm.Contact.Surname);
+                ProjectSerializer.SaveToFile(Project);
             }
         }
 
@@ -118,6 +121,7 @@ namespace ContactsApp.View
 
             currentContacts.RemoveAt(index);
             Project.Contacts.RemoveAt(contactIndex);
+            ProjectSerializer.SaveToFile(Project);
             SurnameTextBox.Text = "";
             NameTextBox.Text = "";
             BirthdayTimePicker.Value = DateTime.Now;
