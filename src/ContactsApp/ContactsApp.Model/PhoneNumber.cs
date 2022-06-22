@@ -28,15 +28,17 @@ namespace ContactsApp.Model
 		{
 			get
 			{
-				return this._number;
+				return _number;
 			}
 			set
 			{
-				if (value.ToString().Length > MAXDIGITCOUNT || !value.ToString().StartsWith("7"))
+				if (value.ToString().Length > MAXDIGITCOUNT || 
+					!value.ToString().StartsWith("7"))
 				{
-					throw new ArgumentException();
+					throw new ArgumentException("Номер больше " + 
+						MAXDIGITCOUNT + "или начинается не с 7");
 				}
-				this._number = value;
+				_number = value;
 			}
 		}
 
@@ -45,7 +47,7 @@ namespace ContactsApp.Model
 		/// </param>
 		public PhoneNumber(long number)
 		{
-			this.Number = number;
+			Number = number;
 		}
 	}
 }

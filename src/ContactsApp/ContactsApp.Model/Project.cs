@@ -20,17 +20,23 @@ namespace ContactsApp.Model
 		/// Возвращает список контактов отсортированных по фамилии.
 		/// </summary>
 		/// <returns></returns>
-		public List<Contact> SortContacts()
+		public List<Contact> SortBySurname()
 		{
-			for (int i = 0; i < Contacts.Count; i++)
-			{
-				if (Contacts[i] == null)
-				{
-					Contacts.RemoveAt(i);
-				}
-			}
-			return Contacts.OrderBy(
-				contact => contact.Surname).ToList<Contact>();
+			List<Contact> newList = Contacts.OrderBy
+				(contact => contact.Surname).ToList();
+			return newList;
+		}
+
+		/// <summary>
+		/// Осуществляет поиск контактов по фамилии.
+		/// </summary>
+		/// <param name="value"></param>
+		/// <returns></returns>
+		public List<Contact> SearchBySurname(string value)
+		{
+			return Contacts.Where
+				(contact => contact.Surname.ToLower().
+				Contains(value.ToLower())).ToList();
 		}
 	}
 }

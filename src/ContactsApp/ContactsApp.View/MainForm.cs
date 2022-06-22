@@ -16,7 +16,12 @@ namespace ContactsApp.View
         /// <summary>
         /// Проект контактов.
         /// </summary>
-        private Project _project { get; set; }
+        private Project Project { get; set; }
+
+        /// <summary>
+        /// Текущие объекты в списке
+        /// </summary>
+        private List<Contact> currentContacts;
 
         /// <summary>
         /// Обновляет список контактов.
@@ -24,7 +29,8 @@ namespace ContactsApp.View
         private void UpdateListBox()
         {
             ContactsListBox.Items.Clear();
-            foreach (var contact in _project.Contacts)
+            currentContacts = currentContacts.OrderBy(contact => contact.Surname).ToList();
+            foreach (var contact in Project.Contacts)
             {
                 ContactsListBox.Items.Add(contact.Surname);
             }
@@ -39,7 +45,7 @@ namespace ContactsApp.View
             contactForm.ShowDialog();
             if (contactForm.DialogResult == DialogResult.OK)
             {
-                _project.Contacts.Add(contactForm.Contact);
+                Project.Contacts.Add(contactForm.Contact);
             }
         }
 
@@ -53,14 +59,14 @@ namespace ContactsApp.View
             {
                 return;
             }
-            Contact editContact = _project.Contacts[index];
+            Contact editContact = Project.Contacts[index];
             ContactForm contactForm = new ContactForm();
             contactForm.Contact = (Contact)editContact.Clone();
             contactForm.ShowDialog();
             if (contactForm.DialogResult == DialogResult.OK)
             {
-                _project.Contacts.RemoveAt(index);
-                _project.Contacts.Insert(index, contactForm.Contact);
+                Project.Contacts.RemoveAt(index);
+                Project.Contacts.Insert(index, contactForm.Contact);
             }
         }
 
@@ -75,13 +81,13 @@ namespace ContactsApp.View
                 return;
             }
             var result = MessageBox.Show($"Do you really want to remove " +
-                $"{_project.Contacts[index].Surname}?",
+                $"{Project.Contacts[index].Surname}?",
                 "Warning", MessageBoxButtons.OKCancel);
             if (result == DialogResult.Cancel)
             {
                 return;
             }
-            _project.Contacts.RemoveAt(index);
+            Project.Contacts.RemoveAt(index);
             SurnameTextBox.Text = "";
             NameTextBox.Text = "";
             BirthdayTimePicker.Value = DateTime.Now;
@@ -103,7 +109,7 @@ namespace ContactsApp.View
                 return;
             }
 
-            var contact = _project.Contacts[index];
+            var contact = Project.Contacts[index];
             SurnameTextBox.Text = contact.Surname;
             NameTextBox.Text = contact.Name;
             PhoneTextBox.Text = contact.PhoneNumber.Number.ToString();
@@ -132,7 +138,9 @@ namespace ContactsApp.View
         public MainForm()
         {
             InitializeComponent();
-            _project = new Project();
+            Project = new Project();
+            currentContacts = new List<Contact>(Project.SortBySurname());
+            UpdateListBox();
         }
 
         /// <summary>
@@ -248,29 +256,7 @@ namespace ContactsApp.View
         /// <param name="e"></param>
         private void addRandomContactToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var randomNames = new List<string>
-            {
-                "Иван", "Петр", "Владимир", "Никита"
-            };
-            var randomSurnames = new List<string>
-            {
-                "Петров", "Иванов", "Путин", "Зайка"
-            };
-            var randomEmails = new List<string>
-            {
-                "petrov@mail.ru", "ivanov@mail.ru", "pop@mail.ru",
-                "pap@mail.ru"
-            };
-            Random random = new Random();
-            Contact contact = new Contact(
-                randomNames[random.Next(randomNames.Count)],
-                randomSurnames[random.Next(randomSurnames.Count)],
-                new PhoneNumber(79138040329),
-                new DateTime(random.Next(1900, 2022),
-                random.Next(1, 12), random.Next(1, 28)),
-                randomEmails[random.Next(randomEmails.Count)],
-                new Random().Next().ToString());
-            _project.Contacts.Add(contact);
+            Project.Contacts.Add(ContactFactory.AddRandomContact());
             UpdateListBox();
         }
 
