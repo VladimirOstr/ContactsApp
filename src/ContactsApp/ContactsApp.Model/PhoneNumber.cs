@@ -17,7 +17,7 @@ namespace ContactsApp.Model
 		private long _number;
 
 		/// <summary>
-		/// Максимальное количетсов цифр в номере.
+		/// Максимальное количество цифр в номере.
 		/// </summary>
 		public const int MAXDIGITCOUNT = 11;
 

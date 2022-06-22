@@ -265,43 +265,44 @@ namespace ContactsApp.View
             if (_nameError != string.Empty)
             {
                 //MessageBox.Show(_nameError);
-                errorText += _nameError;
+                errorText += "\n" + _nameError;
                 //return false;
             }
             if (_surnameError != string.Empty)
             {
                 //MessageBox.Show(_surnameError);
-                errorText += _surnameError;
+                errorText += "\n" + _surnameError;
                 //return false;
             }
             if (_dateOfBirthError != string.Empty)
             {
                 //MessageBox.Show(_dateOfBirthError);
-                errorText += _dateOfBirthError;
+                errorText += "\n" + _dateOfBirthError;
                 //return false;
             }
             if (_phoneNumberError != string.Empty)
             {
                 //MessageBox.Show(_phoneNumberError);
-                errorText += _phoneNumberError;
+                errorText += "\n" + _phoneNumberError;
                 //return false;
             }
             if (_emailError != string.Empty)
             {
                 //MessageBox.Show(_emailError);
-                errorText += _emailError;
+                errorText += "\n" + _emailError;
                 //return false;
             }
             if (_idVKError != string.Empty)
             {
                 //MessageBox.Show(_idVKError);
-                errorText += _idVKError;
+                errorText += "\n" + _idVKError;
                 //return false;
             }
             if (errorText != string.Empty)
             {
                 MessageBox.Show(errorText, "Warning",
                 MessageBoxButtons.OKCancel);
+                errorText = string.Empty;
                 return false;
             }
             return true;
