@@ -19,7 +19,7 @@ namespace ContactsApp.View
         private Project Project { get; set; }
 
         /// <summary>
-        /// Текущие объекты в списке
+        /// Текущие объекты в списке.
         /// </summary>
         private List<Contact> currentContacts;
 
@@ -208,7 +208,7 @@ namespace ContactsApp.View
         }
 
         /// <summary>
-        /// Выход через ToolStripMenu
+        /// Выход через ToolStripMenu.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -224,7 +224,7 @@ namespace ContactsApp.View
         }
 
         /// <summary>
-        /// Добавление контакта через ToolStripMenu
+        /// Добавление контакта через ToolStripMenu.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -235,7 +235,7 @@ namespace ContactsApp.View
         }
 
         /// <summary>
-        /// Редактирование контакта через ToolStripMenu
+        /// Редактирование контакта через ToolStripMenu.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -247,7 +247,7 @@ namespace ContactsApp.View
         }
 
         /// <summary>
-        /// Удаление контакта через ToolStripMenu
+        /// Удаление контакта через ToolStripMenu.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -258,7 +258,7 @@ namespace ContactsApp.View
         }
 
         /// <summary>
-        /// Открытие окна About через ToolStripMenu
+        /// Открытие окна About через ToolStripMenu.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -269,7 +269,7 @@ namespace ContactsApp.View
         }
 
         /// <summary>
-        /// Добавление рандомного контакта через ToolStripMenu
+        /// Добавление рандомного контакта через ToolStripMenu.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -281,7 +281,7 @@ namespace ContactsApp.View
         }
 
         /// <summary>
-        /// Действия во время закрытия окна
+        /// Действия во время закрытия окна.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -296,7 +296,12 @@ namespace ContactsApp.View
                 e.Cancel = true;
             }
         }
-
+        
+        /// <summary>
+        /// Действия во время набора текста в строку поиска.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FindTextBox_TextChanged(object sender, EventArgs e)
         {
             string text = FindTextBox.Text;

@@ -6,8 +6,15 @@ using System.Threading.Tasks;
 
 namespace ContactsApp.Model
 {
+    /// <summary>
+    /// Фабричный интерфейс
+    /// </summary>
     public class ContactFactory
     {
+        /// <summary>
+        /// Добавление контакта с рандомными данными
+        /// </summary>
+        /// <returns></returns>
         static public Contact AddRandomContact()
         {
             var randomNames = new List<string>
