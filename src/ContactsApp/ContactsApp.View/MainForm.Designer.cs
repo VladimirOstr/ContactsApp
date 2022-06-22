@@ -151,6 +151,7 @@ namespace ContactsApp.View
             this.FindTextBox.Name = "FindTextBox";
             this.FindTextBox.Size = new System.Drawing.Size(260, 24);
             this.FindTextBox.TabIndex = 8;
+            this.FindTextBox.TextChanged += new System.EventHandler(this.FindTextBox_TextChanged);
             // 
             // ContactsListBox
             // 
