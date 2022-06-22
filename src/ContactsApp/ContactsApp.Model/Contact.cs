@@ -54,11 +54,11 @@ namespace ContactsApp.Model
             {
                 if (value.Length > MAXLETTERCOUNT)
                 {
-                    throw new ArgumentException("Длина фамилии больше" + MAXLETTERCOUNT);
+                    throw new ArgumentException("Длина фамилии больше " + MAXLETTERCOUNT + ".");
                 }
                 if (value.Length <= 0)
                 {
-                    throw new ArgumentException("Длина фамилии меньше или равна 0");
+                    throw new ArgumentException("Длина фамилии меньше или равна 0.");
                 }
                 _surname = value;
             }
@@ -76,11 +76,11 @@ namespace ContactsApp.Model
             {
                 if (value.Length > MAXLETTERCOUNT)
                 {
-                    throw new ArgumentException("Длина имени больше" + MAXLETTERCOUNT);
+                    throw new ArgumentException("Длина имени больше " + MAXLETTERCOUNT + ".");
                 }
                 if (value.Length <= 0)
                 {
-                    throw new ArgumentException("Длина имени меньше или равна 0");
+                    throw new ArgumentException("Длина имени меньше или равна 0.");
                 }
                 _name = value;
             }
@@ -123,11 +123,11 @@ namespace ContactsApp.Model
             {
                 if (value.Length > MAXLETTERCOUNT)
                 {
-                    throw new ArgumentException("Длина email больше 50 знаков");
+                    throw new ArgumentException("Длина email больше " + MAXLETTERCOUNT + ".");
                 }
                 if (value.Length <= 0)
                 {
-                    throw new ArgumentException("Длина email меньше или равна 0");
+                    throw new ArgumentException("Длина email меньше или равна 0.");
                 }
                 _email = value;
             }
@@ -150,11 +150,11 @@ namespace ContactsApp.Model
             {
                 if (value.Length > 15)
                 {
-                    throw new ArgumentException("Длина id больше 15 знаков");
+                    throw new ArgumentException("Длина id больше 15 знаков.");
                 }
                 if (value.Length <= 0)
                 {
-                    throw new ArgumentException("Длина id меньше или равна 0");
+                    throw new ArgumentException("Длина id меньше или равна 0.");
                 }
                 _idVK = value;
             }

@@ -16,7 +16,23 @@ namespace ContactsApp.View
         /// <summary>
         /// Проект контактов.
         /// </summary>
-        private Project _project { get; set; }
+        private Project Project { get; set; }
+
+        /// <summary>
+        /// Текущие объекты в списке.
+        /// </summary>
+        private List<Contact> currentContacts;
+
+        /// <summary>
+        /// Конструктор.
+        /// </summary>
+        public MainForm()
+        {
+            InitializeComponent();
+            Project = new Project();
+            currentContacts = new List<Contact>(Project.SortBySurname());
+            UpdateListBox();
+        }
 
         /// <summary>
         /// Обновляет список контактов.
@@ -24,7 +40,9 @@ namespace ContactsApp.View
         private void UpdateListBox()
         {
             ContactsListBox.Items.Clear();
-            foreach (var contact in _project.Contacts)
+            currentContacts = currentContacts.OrderBy
+            (contact => contact.Surname).ToList();
+            foreach (var contact in currentContacts)
             {
                 ContactsListBox.Items.Add(contact.Surname);
             }
@@ -39,8 +57,10 @@ namespace ContactsApp.View
             contactForm.ShowDialog();
             if (contactForm.DialogResult == DialogResult.OK)
             {
-                _project.Contacts.Add(contactForm.Contact);
+                Project.Contacts.Add(contactForm.Contact);
+                currentContacts.Add(contactForm.Contact);
             }
+            ClearSelectedContact();
         }
 
         /// <summary>
@@ -53,14 +73,25 @@ namespace ContactsApp.View
             {
                 return;
             }
-            Contact editContact = _project.Contacts[index];
+            Contact editContact = currentContacts[index];
             ContactForm contactForm = new ContactForm();
             contactForm.Contact = (Contact)editContact.Clone();
             contactForm.ShowDialog();
             if (contactForm.DialogResult == DialogResult.OK)
             {
-                _project.Contacts.RemoveAt(index);
-                _project.Contacts.Insert(index, contactForm.Contact);
+                ContactsListBox.Items.RemoveAt(index);
+
+                int contactIndex = Project.Contacts.FindIndex(contact =>
+                (contact.Surname == currentContacts[index].Surname &&
+                contact.PhoneNumber.Number == currentContacts[index].PhoneNumber.Number));
+
+                currentContacts.RemoveAt(index);
+                currentContacts.Insert(index, contactForm.Contact);
+
+                Project.Contacts.RemoveAt(contactIndex);
+                Project.Contacts.Insert(contactIndex, contactForm.Contact);
+
+                ContactsListBox.Items.Insert(index, contactForm.Contact.Surname);
             }
         }
 
@@ -75,13 +106,18 @@ namespace ContactsApp.View
                 return;
             }
             var result = MessageBox.Show($"Do you really want to remove " +
-                $"{_project.Contacts[index].Surname}?",
+                $"{Project.Contacts[index].Surname}?",
                 "Warning", MessageBoxButtons.OKCancel);
             if (result == DialogResult.Cancel)
             {
                 return;
             }
-            _project.Contacts.RemoveAt(index);
+            int contactIndex = Project.Contacts.FindIndex(contact =>
+                (contact.Surname == currentContacts[index].Surname 
+                && contact.PhoneNumber.Number == currentContacts[index].PhoneNumber.Number));
+
+            currentContacts.RemoveAt(index);
+            Project.Contacts.RemoveAt(contactIndex);
             SurnameTextBox.Text = "";
             NameTextBox.Text = "";
             BirthdayTimePicker.Value = DateTime.Now;
@@ -103,7 +139,7 @@ namespace ContactsApp.View
                 return;
             }
 
-            var contact = _project.Contacts[index];
+            Contact contact = currentContacts[index];
             SurnameTextBox.Text = contact.Surname;
             NameTextBox.Text = contact.Name;
             PhoneTextBox.Text = contact.PhoneNumber.Number.ToString();
@@ -121,18 +157,9 @@ namespace ContactsApp.View
             SurnameTextBox.Text = String.Empty;
             NameTextBox.Text = String.Empty;
             PhoneTextBox.Text = String.Empty;
-            BirthdayTimePicker.Value = new DateTime(1900,01,01);
+            BirthdayTimePicker.Value = new DateTime(1900, 01, 01);
             VkTextBox.Text = String.Empty;
             EmailTextBox.Text = String.Empty;
-        }
-
-        /// <summary>
-        /// Конструктор.
-        /// </summary>
-        public MainForm()
-        {
-            InitializeComponent();
-            _project = new Project();
         }
 
         /// <summary>
@@ -142,7 +169,7 @@ namespace ContactsApp.View
         /// <param name="e"></param>
         private void ContactsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
+
             UpdateSelectedContact(ContactsListBox.SelectedIndex);
         }
 
@@ -157,12 +184,12 @@ namespace ContactsApp.View
             UpdateListBox();
         }
 
-       /// <summary>
-       /// Редактирование контакта через кнопку.
-       /// </summary>
-       /// <param name="sender"></param>
-       /// <param name="e"></param>
-       private void EditContactButton_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Редактирование контакта через кнопку.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void EditContactButton_Click(object sender, EventArgs e)
         {
             EditContact(ContactsListBox.SelectedIndex);
             UpdateListBox();
@@ -181,13 +208,13 @@ namespace ContactsApp.View
         }
 
         /// <summary>
-        /// Выход через ToolStripMenu
+        /// Выход через ToolStripMenu.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var result = MessageBox.Show("Are you sure want to exit?", 
+            var result = MessageBox.Show("Are you sure want to exit?",
                 "Warning", MessageBoxButtons.OKCancel);
             if (result == DialogResult.Cancel)
             {
@@ -197,7 +224,7 @@ namespace ContactsApp.View
         }
 
         /// <summary>
-        /// Добавление контакта через ToolStripMenu
+        /// Добавление контакта через ToolStripMenu.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -208,7 +235,7 @@ namespace ContactsApp.View
         }
 
         /// <summary>
-        /// Редактирование контакта через ToolStripMenu
+        /// Редактирование контакта через ToolStripMenu.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -220,7 +247,7 @@ namespace ContactsApp.View
         }
 
         /// <summary>
-        /// Удаление контакта через ToolStripMenu
+        /// Удаление контакта через ToolStripMenu.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -231,7 +258,7 @@ namespace ContactsApp.View
         }
 
         /// <summary>
-        /// Открытие окна About через ToolStripMenu
+        /// Открытие окна About через ToolStripMenu.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -242,40 +269,19 @@ namespace ContactsApp.View
         }
 
         /// <summary>
-        /// Добавление рандомного контакта через ToolStripMenu
+        /// Добавление рандомного контакта через ToolStripMenu.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void addRandomContactToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var randomNames = new List<string>
-            {
-                "Иван", "Петр", "Владимир", "Никита"
-            };
-            var randomSurnames = new List<string>
-            {
-                "Петров", "Иванов", "Путин", "Зайка"
-            };
-            var randomEmails = new List<string>
-            {
-                "petrov@mail.ru", "ivanov@mail.ru", "pop@mail.ru",
-                "pap@mail.ru"
-            };
-            Random random = new Random();
-            Contact contact = new Contact(
-                randomNames[random.Next(randomNames.Count)],
-                randomSurnames[random.Next(randomSurnames.Count)],
-                new PhoneNumber(79138040329),
-                new DateTime(random.Next(1900, 2022),
-                random.Next(1, 12), random.Next(1, 28)),
-                randomEmails[random.Next(randomEmails.Count)],
-                new Random().Next().ToString());
-            _project.Contacts.Add(contact);
+            Project.Contacts.Add(ContactFactory.AddRandomContact());
+            currentContacts.Add(Project.Contacts.Last());
             UpdateListBox();
         }
 
         /// <summary>
-        /// Действия во время закрытия окна
+        /// Действия во время закрытия окна.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -289,6 +295,18 @@ namespace ContactsApp.View
             {
                 e.Cancel = true;
             }
+        }
+        
+        /// <summary>
+        /// Действия во время набора текста в строку поиска.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void FindTextBox_TextChanged(object sender, EventArgs e)
+        {
+            string text = FindTextBox.Text;
+            currentContacts = Project.SearchBySurname(text);
+            UpdateListBox();
         }
     }
 }
