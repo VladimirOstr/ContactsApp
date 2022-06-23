@@ -27,9 +27,9 @@ DefaultGroupName={#MyAppName}
 AllowNoIcons=yes
 ; Uncomment the following line to run in non administrative install mode (install for current user only.)
 ;PrivilegesRequired=lowest
-OutputDir=C:\Users\Владимир\Desktop
+OutputDir=..\setup
 OutputBaseFilename=ContactsAppSetup
-SetupIconFile=D:\Visual Studio Projects\ContactsApp\src\ContactsApp\icon.ico
+SetupIconFile=icon.ico
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
@@ -37,16 +37,14 @@ WizardStyle=modern
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "russian"; MessagesFile: "compiler:Languages\Russian.isl"
-Name: "slovak"; MessagesFile: "compiler:Languages\Slovak.isl"
-Name: "slovenian"; MessagesFile: "compiler:Languages\Slovenian.isl"
 
 [Tasks]
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "D:\Visual Studio Projects\ContactsApp\src\ContactsApp\ContactsApp.View\bin\Release\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Visual Studio Projects\ContactsApp\src\ContactsApp\ContactsApp.View\bin\Release\ContactsApp.Model.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Visual Studio Projects\ContactsApp\src\ContactsApp\ContactsApp.View\bin\Release\Newtonsoft.Json.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\..\ContactsApp.View\bin\Release\ContactsApp.View.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\..\ContactsApp.View\bin\Release\ContactsApp.Model.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\..\ContactsApp.View\bin\Release\Newtonsoft.Json.dll"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Registry]
