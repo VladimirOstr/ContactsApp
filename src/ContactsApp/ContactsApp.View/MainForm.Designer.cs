@@ -37,10 +37,6 @@ namespace ContactsApp.View
             this.FindTextBox = new System.Windows.Forms.TextBox();
             this.ContactsListBox = new System.Windows.Forms.ListBox();
             this.FindLabel = new System.Windows.Forms.Label();
-            this.NotificationPanel = new System.Windows.Forms.Panel();
-            this.BirthdayBoyLabel = new System.Windows.Forms.Label();
-            this.NotificationLabel = new System.Windows.Forms.Label();
-            this.NotificationPictureBox = new System.Windows.Forms.PictureBox();
             this.InfoGroupBox = new System.Windows.Forms.GroupBox();
             this.BirthdayTimePicker = new System.Windows.Forms.DateTimePicker();
             this.VkTextBox = new System.Windows.Forms.TextBox();
@@ -68,8 +64,6 @@ namespace ContactsApp.View
             this.MainSplitContainer.Panel1.SuspendLayout();
             this.MainSplitContainer.Panel2.SuspendLayout();
             this.MainSplitContainer.SuspendLayout();
-            this.NotificationPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NotificationPictureBox)).BeginInit();
             this.InfoGroupBox.SuspendLayout();
             this.MainMenuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -93,7 +87,6 @@ namespace ContactsApp.View
             // MainSplitContainer.Panel2
             // 
             this.MainSplitContainer.Panel2.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.MainSplitContainer.Panel2.Controls.Add(this.NotificationPanel);
             this.MainSplitContainer.Panel2.Controls.Add(this.InfoGroupBox);
             this.MainSplitContainer.Panel2MinSize = 400;
             this.MainSplitContainer.Size = new System.Drawing.Size(942, 561);
@@ -177,49 +170,6 @@ namespace ContactsApp.View
             this.FindLabel.Size = new System.Drawing.Size(40, 18);
             this.FindLabel.TabIndex = 7;
             this.FindLabel.Text = "Find:";
-            // 
-            // NotificationPanel
-            // 
-            this.NotificationPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.NotificationPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.NotificationPanel.Controls.Add(this.BirthdayBoyLabel);
-            this.NotificationPanel.Controls.Add(this.NotificationLabel);
-            this.NotificationPanel.Controls.Add(this.NotificationPictureBox);
-            this.NotificationPanel.Location = new System.Drawing.Point(0, 461);
-            this.NotificationPanel.MinimumSize = new System.Drawing.Size(569, 300);
-            this.NotificationPanel.Name = "NotificationPanel";
-            this.NotificationPanel.Size = new System.Drawing.Size(626, 300);
-            this.NotificationPanel.TabIndex = 1;
-            this.NotificationPanel.Visible = false;
-            // 
-            // BirthdayBoyLabel
-            // 
-            this.BirthdayBoyLabel.AutoSize = true;
-            this.BirthdayBoyLabel.Location = new System.Drawing.Point(148, 44);
-            this.BirthdayBoyLabel.Name = "BirthdayBoyLabel";
-            this.BirthdayBoyLabel.Size = new System.Drawing.Size(46, 17);
-            this.BirthdayBoyLabel.TabIndex = 2;
-            this.BirthdayBoyLabel.Text = "empty";
-            // 
-            // NotificationLabel
-            // 
-            this.NotificationLabel.AutoSize = true;
-            this.NotificationLabel.Location = new System.Drawing.Point(147, 27);
-            this.NotificationLabel.Name = "NotificationLabel";
-            this.NotificationLabel.Size = new System.Drawing.Size(64, 17);
-            this.NotificationLabel.TabIndex = 1;
-            this.NotificationLabel.Text = "Birthday:";
-            // 
-            // NotificationPictureBox
-            // 
-            this.NotificationPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("NotificationPictureBox.Image")));
-            this.NotificationPictureBox.Location = new System.Drawing.Point(35, 16);
-            this.NotificationPictureBox.Name = "NotificationPictureBox";
-            this.NotificationPictureBox.Size = new System.Drawing.Size(100, 50);
-            this.NotificationPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.NotificationPictureBox.TabIndex = 0;
-            this.NotificationPictureBox.TabStop = false;
             // 
             // InfoGroupBox
             // 
@@ -480,9 +430,6 @@ namespace ContactsApp.View
             this.MainSplitContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.MainSplitContainer)).EndInit();
             this.MainSplitContainer.ResumeLayout(false);
-            this.NotificationPanel.ResumeLayout(false);
-            this.NotificationPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NotificationPictureBox)).EndInit();
             this.InfoGroupBox.ResumeLayout(false);
             this.InfoGroupBox.PerformLayout();
             this.MainMenuStrip.ResumeLayout(false);
@@ -501,10 +448,6 @@ namespace ContactsApp.View
         private System.Windows.Forms.Button RemoveContactButton;
         private System.Windows.Forms.Button EditContactButton;
         private System.Windows.Forms.Button AddContactButton;
-        private System.Windows.Forms.Panel NotificationPanel;
-        private System.Windows.Forms.PictureBox NotificationPictureBox;
-        private System.Windows.Forms.Label NotificationLabel;
-        private System.Windows.Forms.Label BirthdayBoyLabel;
         private System.Windows.Forms.MenuStrip MainMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
