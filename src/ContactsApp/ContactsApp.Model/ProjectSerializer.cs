@@ -8,7 +8,7 @@ using System.IO;
 
 namespace ContactsApp.Model
 {
-    static public class ProjectSerializer
+    public static class ProjectSerializer
     {
         /// <summary>
         /// Название файла.

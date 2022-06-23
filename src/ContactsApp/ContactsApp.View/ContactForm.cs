@@ -36,32 +36,32 @@ namespace ContactsApp.View
         /// <summary>
         /// Ошибка в фамилии.
         /// </summary>
-        private string _surnameError { get; set; }
+        private string _surnameError;
 
         /// <summary>
         /// Ошибка в имени.
         /// </summary>
-        private string _nameError { get; set; }
+        private string _nameError;
 
         /// <summary>
         /// Ошибка в дате рождения.
         /// </summary>
-        private string _dateOfBirthError { get; set; }
+        private string _dateOfBirthError;
 
         /// <summary>
         /// Ошибка в номере телефона.
         /// </summary>
-        private string _phoneNumberError { get; set; }
+        private string _phoneNumberError;
 
         /// <summary>
         /// Ошибка в email.
         /// </summary>
-        private string _emailError { get; set; }
+        private string _emailError;
 
         /// <summary>
         /// Ошибка в id VK.
         /// </summary>
-        private string _idVKError { get; set; }
+        private string _idVKError;
 
         /// <summary>
         /// Конструктор.
@@ -264,39 +264,27 @@ namespace ContactsApp.View
         {
             if (_nameError != string.Empty)
             {
-                //MessageBox.Show(_nameError);
                 errorText += "\n" + _nameError;
-                //return false;
             }
             if (_surnameError != string.Empty)
             {
-                //MessageBox.Show(_surnameError);
                 errorText += "\n" + _surnameError;
-                //return false;
             }
             if (_dateOfBirthError != string.Empty)
             {
-                //MessageBox.Show(_dateOfBirthError);
                 errorText += "\n" + _dateOfBirthError;
-                //return false;
             }
             if (_phoneNumberError != string.Empty)
             {
-                //MessageBox.Show(_phoneNumberError);
                 errorText += "\n" + _phoneNumberError;
-                //return false;
             }
             if (_emailError != string.Empty)
             {
-                //MessageBox.Show(_emailError);
                 errorText += "\n" + _emailError;
-                //return false;
             }
             if (_idVKError != string.Empty)
             {
-                //MessageBox.Show(_idVKError);
                 errorText += "\n" + _idVKError;
-                //return false;
             }
             if (errorText != string.Empty)
             {
