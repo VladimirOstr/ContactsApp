@@ -3,7 +3,7 @@
 
 #define MyAppName "ContactsApp"
 #define MyAppVersion "1.0.0"
-#define MyAppPublisher "VladimirOstr"
+#define MyAppPublisher "Vladimir Ostrovsky"
 #define MyAppURL "https://github.com/VladimirOstr/"
 #define MyAppExeName "ContactsApp.View.exe"
 #define MyAppAssocName MyAppName + " File"
@@ -13,7 +13,7 @@
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
-AppId={{858CC787-7160-4144-BB00-5E4A1D3CB56D}
+AppId={{2EC970BE-5DA0-4E18-AB2B-A93B21AE2426}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 ;AppVerName={#MyAppName} {#MyAppVersion}
@@ -28,7 +28,7 @@ AllowNoIcons=yes
 ; Uncomment the following line to run in non administrative install mode (install for current user only.)
 ;PrivilegesRequired=lowest
 OutputDir=..\setup
-OutputBaseFilename=ContactsAppSetup
+OutputBaseFilename=setup
 SetupIconFile=icon.ico
 Compression=lzma
 SolidCompression=yes
@@ -42,9 +42,9 @@ Name: "russian"; MessagesFile: "compiler:Languages\Russian.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "..\..\ContactsApp.View\bin\Release\ContactsApp.View.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\..\ContactsApp.View\bin\Release\ContactsApp.Model.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\..\ContactsApp.View\bin\Release\Newtonsoft.Json.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\Visual Studio Projects\ContactsApp\src\ContactsApp\ContactsApp.View\bin\Release\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\Visual Studio Projects\ContactsApp\src\ContactsApp\ContactsApp.View\bin\Release\ContactsApp.Model.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\Visual Studio Projects\ContactsApp\src\ContactsApp\ContactsApp.View\bin\Release\Newtonsoft.Json.dll"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Registry]
