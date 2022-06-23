@@ -60,6 +60,7 @@ Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; IconFilename: "
 Name: "{group}\{cm:ProgramOnTheWeb,{#MyAppName}}"; Filename: "{#MyAppURL}";IconFilename: "{app}\icon.ico"
 Name: "{group}\{cm:UninstallProgram,{#MyAppName}}"; Filename: "{uninstallexe}";IconFilename: "{app}\icon.ico"
 Name: "{userdesktop}\ContactsApp"; Filename: "{app}\{#MyAppExeName}"; WorkingDir: "{app}";IconFilename: "{app}\icon.ico"
+Name: "{commondesktop}\ContactsApp"; Filename: "{app}\{#MyAppExeName}"; WorkingDir: "{app}";IconFilename: "{app}\icon.ico"
 Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: desktopicon
 
 [Run]
